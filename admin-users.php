@@ -14,6 +14,12 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 -->
+<?php
+  session_start();
+  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
+    header("Location: login.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,24 +68,29 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="active ">
-            <a href="user.php">
+            <a href="admin-users.php">
               <i class="now-ui-icons design_app"></i>
               <p>User Management</p>
             </a>
           </li>
           <li>
-            <a href="marksheets.php">
+            <a href="admin-marksheets.php">
               <i class="now-ui-icons education_atom"></i>
               <p>Marksheets</p>
             </a>
           </li>
           <li>
-            <a href="programs.php">
+            <a href="admin-programs.php">
               <i class="now-ui-icons education_atom"></i>
               <p>Program Management</p>
             </a>
           </li>
           <li>
+            <a href="admin-courses.php">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Course Management</p>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -112,8 +123,8 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">User</a>
-                  <a class="dropdown-item" href="#">LogOut</a>
+                  <a class="dropdown-item" href="#">ADMIN</a>
+                  <a class="dropdown-item" href="php/logout.php">LogOut</a>
                 </div>
               </li>
             </ul>
@@ -135,18 +146,18 @@
                     <i class="now-ui-icons loader_gear"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">All</a>
-                    <a class="dropdown-item" href="#">Students</a>
-                    <a class="dropdown-item" href="#">Faculties</a>
-                    <a class="dropdown-item" href="#">Admin</a>
-                    <a class="dropdown-item" href="#">Higher Management</a>
-                    <a class="dropdown-item user-add-btn" href="add-user.php">Add User</a>
+                    <a class="dropdown-item" href="admin-users.php">All</a>
+                    <a class="dropdown-item" href="admin-users.php?q=studnt">Students</a>
+                    <a class="dropdown-item" href="admin-users.php?q=faculty">Faculties</a>
+                    <a class="dropdown-item" href="admin-users.php?q=admin">Admin</a>
+                    <a class="dropdown-item" href="admin-users.php?q=hm">Higher Management</a>
+                    <a class="dropdown-item user-add-btn" href="admin-add-user.php">Add User</a>
                   </div>
                 </div>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table">
+                  <table class="table" id="datatable">
                     <thead class=" text-primary">
                       <th>
                         ID
@@ -228,6 +239,9 @@
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+  <script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+
   <!-- Chart JS -->
   <script src="assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -236,11 +250,7 @@
   <script src="assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="assets/demo/demo.js"></script>
   <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
-
-    });
+   
   </script>
 </body>
 

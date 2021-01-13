@@ -14,6 +14,12 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 -->
+<?php
+  session_start();
+  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
+    header("Location: login.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +29,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Add User | SPMS 
+    Batch Marksheet | SPMS 
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -36,25 +42,10 @@
   <link href="assets/demo/demo.css" rel="stylesheet" />
 
   <style>
-    .submit-button{
-      vertical-align: middle;
-      color: #fff;
-      background-color: #F56332;
-      border-radius: 25px;
-      width:140px
-    }
-    .selectpicker{
-      width: 100%;
-      padding: 8px;
-      border-radius: 20px;
-      border-color: #E3E3E3;
-    }
-    .selectpicker:focus{
-      outline: none;
-      border-color: #F56332;
-    }
-    .footer > .col-md-12{
-      text-align: center;
+    .final-result{
+      color: #F56332;
+      font-size: 18px;
+      font-weight: 500;
     }
   </style>
 
@@ -77,21 +68,27 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="">
-            <a href="user.php">
+            <a href="admin-users.php">
               <i class="now-ui-icons design_app"></i>
               <p>User Management</p>
             </a>
           </li>
           <li>
-            <a href="marksheets.php">
+            <a href="admin-marksheets.php">
               <i class="now-ui-icons education_atom"></i>
               <p>Marksheets</p>
             </a>
           </li>
           <li>
-            <a href="programs.php">
+            <a href="admin-programs.php">
               <i class="now-ui-icons education_atom"></i>
               <p>Program Management</p>
+            </a>
+          </li>
+          <li>
+            <a href="admin-courses.php">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Course Management</p>
             </a>
           </li>
           <li>
@@ -110,7 +107,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#">Add New User</a>
+            <a class="navbar-brand" href="#pablo">Semester: Summer 2021. &nbsp;&nbsp;Course ID: CSE 101.</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -127,8 +124,8 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">User</a>
-                  <a class="dropdown-item" href="#">LogOut</a>
+                  <a class="dropdown-item" href="#">Admin</a>
+                  <a class="dropdown-item" href="php/logout.php">LogOut</a>
                 </div>
               </li>
             </ul>
@@ -143,76 +140,121 @@
           <div class="col-lg-12">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Submitted Marksheets by Faculties</h5>
-                <h4 class="card-title">Marksheets</h4>
+                <h5 class="card-category">Section E</h5>
+                <h4 class="card-title">Marksheet</h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">All</a>
-                    <a class="dropdown-item" href="#">Students</a>
-                    <a class="dropdown-item" href="#">Faculties</a>
-                    <a class="dropdown-item" href="#">Admin</a>
-                    <a class="dropdown-item" href="#">Higher Management</a>
-                    <a class="dropdown-item user-add-btn" href="#">Add User</a>
+                    <a class="dropdown-item" href="#">Approve</a>
+                    <a class="dropdown-item" href="#">Disapprove</a>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-              <form>
-                  <div class="row">
-                    <div class="col-md-6 pr-1">
-                      <div class="form-group">
-                        <label>ID</label>
-                        <input type="text" class="form-control"  placeholder="Ex. 194545645">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-1">
-                      <div class="form-group">
-                        <label>Role</label>
-                        <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round btn-block" title="Single Select">
-                            <option disabled selected>Select a Role</option>
-                            <option value="2">Student</option>
-                            <option value="3">Faculty</option>
-                            <option value="4">Admin</option>
-                            <option value="5">Higher Management</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-1">
-                      <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Ex. John" >
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-1">
-                      <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Ex. Smith">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-1">
-                      <div class="form-group">
-                        <label>Email</label>
-                        <input type="emai" class="form-control" placeholder="Ex. johns@mail.com" >
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-1">
-                      <div class="form-group">
-                        <label>Password</label>
-                        <input type="text" class="form-control" placeholder="Password">
-                      </div>
-                    </div>
-                  </div>
-                </form>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        ID
+                      </th>
+                      <th>
+                        Student Name
+                      </th>
+                      <th>
+                        Q1
+                        <small>C1</small>
+                      </th>
+                      <th>
+                        Q2
+                        <small>C3</small>
+                      </th>
+                      <th>
+                        Q3
+                        <small>C2</small>
+                      </th>
+                      <th>
+                        Q4
+                        <small>C1</small>
+                      </th>
+                      <th>
+                        Q5
+                        <small>C4</small>
+                      </th>
+                      <th>
+                        Q6
+                        <small>C4</small>
+                      </th>
+                      <th>
+                        Total
+                      </th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          1545646
+                        </td>
+                        <td>
+                          John Smith
+                        </td>
+                        <td>
+                          10
+                        </td>
+                        <td>
+                          20
+                        </td>
+                        <td>
+                          30
+                        </td>
+                        <td>
+                          40
+                        </td>
+                        <td>
+                          50
+                        </td>
+                        <td>
+                          60
+                        </td>
+                        <td>
+                          210
+                        </td>
+                      </tr>
+                      <tr>
+                      <td>
+                          1545646
+                        </td>
+                        <td>
+                          Artur Curtus
+                        </td>
+                        <td>
+                          15
+                        </td>
+                        <td>
+                          35
+                        </td>
+                        <td>
+                          25
+                        </td>
+                        <td>
+                          20
+                        </td>
+                        <td>
+                          50
+                        </td>
+                        <td>
+                          40
+                        </td>
+                        <td>
+                          235
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-              <div class="card-footer" align="center">
-                <button type="button" class="btn submit-button">Add User</button>
+              <div class="card-footer">
+                
               </div>
             </div>
           </div>

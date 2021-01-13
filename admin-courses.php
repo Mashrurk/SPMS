@@ -14,6 +14,12 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 -->
+<?php
+  session_start();
+  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
+    header("Location: login.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +29,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Batch Marksheet | SPMS 
+    Program Management | SPMS 
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -61,22 +67,28 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="">
-            <a href="user.php">
+          <li>
+            <a href="admin-users.php">
               <i class="now-ui-icons design_app"></i>
               <p>User Management</p>
             </a>
           </li>
           <li>
-            <a href="marksheets.php">
+            <a href="admin-marksheets.php">
               <i class="now-ui-icons education_atom"></i>
               <p>Marksheets</p>
             </a>
           </li>
           <li>
-            <a href="programs.php">
+            <a href="admin-programs.php">
               <i class="now-ui-icons education_atom"></i>
               <p>Program Management</p>
+            </a>
+          </li>
+          <li class="active ">
+            <a href="admin-programs.php">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Course Management</p>
             </a>
           </li>
           <li>
@@ -95,7 +107,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Semester: Summer 2021. &nbsp;&nbsp;Course ID: CSE 101.</a>
+            <a class="navbar-brand" href="#pablo">User List</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -112,8 +124,8 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">User</a>
-                  <a class="dropdown-item" href="#">LogOut</a>
+                  <a class="dropdown-item" href="#">ADMIN</a>
+                  <a class="dropdown-item" href="php/logout.php">LogOut</a>
                 </div>
               </li>
             </ul>
@@ -128,54 +140,35 @@
           <div class="col-lg-12">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Section E</h5>
-                <h4 class="card-title">Marksheet</h4>
+                <!-- <h5 class="card-category">Submitted Marksheets by Faculties</h5> -->
+                <h4 class="card-title">Programs List</h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Approve</a>
-                    <a class="dropdown-item" href="#">Disapprove</a>
+                    <a class="dropdown-item user-add-btn" href="admin-add-user.php">New Program</a>
                   </div>
                 </div>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table">
+                  <table class="table" id="datatable">
                     <thead class=" text-primary">
                       <th>
                         ID
                       </th>
                       <th>
-                        Student Name
+                        Full Name
                       </th>
                       <th>
-                        Q1
-                        <small>C1</small>
+                        Email
                       </th>
                       <th>
-                        Q2
-                        <small>C3</small>
+                        Role
                       </th>
                       <th>
-                        Q3
-                        <small>C2</small>
-                      </th>
-                      <th>
-                        Q4
-                        <small>C1</small>
-                      </th>
-                      <th>
-                        Q5
-                        <small>C4</small>
-                      </th>
-                      <th>
-                        Q6
-                        <small>C4</small>
-                      </th>
-                      <th>
-                        Total
+                        Added
                       </th>
                     </thead>
                     <tbody>
@@ -187,54 +180,30 @@
                           John Smith
                         </td>
                         <td>
-                          10
+                          john.smith@mail.com
                         </td>
                         <td>
-                          20
+                          Student
                         </td>
                         <td>
-                          30
-                        </td>
-                        <td>
-                          40
-                        </td>
-                        <td>
-                          50
-                        </td>
-                        <td>
-                          60
-                        </td>
-                        <td>
-                          210
+                          2021-01-05 14:35:12
                         </td>
                       </tr>
                       <tr>
-                      <td>
-                          1545646
+                        <td>
+                          15545
                         </td>
                         <td>
-                          Artur Curtus
+                          Arer Cartus
                         </td>
                         <td>
-                          15
+                          arter@email.org
                         </td>
                         <td>
-                          35
+                          Admin
                         </td>
                         <td>
-                          25
-                        </td>
-                        <td>
-                          20
-                        </td>
-                        <td>
-                          50
-                        </td>
-                        <td>
-                          40
-                        </td>
-                        <td>
-                          235
+                          2021-01-05 14:35:12
                         </td>
                       </tr>
                     </tbody>
@@ -266,6 +235,9 @@
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+  <script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+
   <!-- Chart JS -->
   <script src="assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -277,6 +249,7 @@
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       demo.initDashboardPageCharts();
+      $('#datatable').DataTable();
 
     });
   </script>

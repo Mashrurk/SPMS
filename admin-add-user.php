@@ -14,6 +14,12 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 -->
+<?php
+  session_start();
+  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
+    header("Location: login.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +29,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Mark Entry | SPMS  
+    Add User | SPMS 
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -36,22 +42,13 @@
   <link href="assets/demo/demo.css" rel="stylesheet" />
 
   <style>
-    .final-result{
-      color: #F56332;
-      font-size: 18px;
-      font-weight: 500;
-    }
     .submit-button{
+      vertical-align: middle;
       color: #fff;
       background-color: #F56332;
       border-radius: 25px;
-      width:100px
-    }
-    .total-marks{
-      text-align: right;
-      color: #F56332;
-      font-size: 24px;
-      padding-right: 50px;
+      width:140px;
+      
     }
     .selectpicker{
       width: 100%;
@@ -63,6 +60,12 @@
       outline: none;
       border-color: #F56332;
     }
+    .card-footer{
+      padding-bottom: 30px;
+    }
+    .footer > .col-md-12{
+      text-align: center;
+    }
   </style>
 
 </head>
@@ -70,6 +73,9 @@
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
           IUB
@@ -80,19 +86,30 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
-            <a href="faculty.html">
+          <li class="">
+            <a href="admin-users.php">
               <i class="now-ui-icons design_app"></i>
-              <p>Marks Entry</p>
+              <p>User Management</p>
             </a>
           </li>
           <li>
-            <a href="faculty-feedback.php">
+            <a href="admin-marksheets.php">
               <i class="now-ui-icons education_atom"></i>
-              <p>Admin Feedback</p>
+              <p>Marksheets</p>
             </a>
           </li>
           <li>
+            <a href="admin-programs.php">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Program Management</p>
+            </a>
+          </li>
+          <li>
+            <a href="admin-courses.php">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Course Management</p>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -108,7 +125,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Marks Entry</a>
+            <a class="navbar-brand" href="#">Add New User</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -125,8 +142,8 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">User</a>
-                  <a class="dropdown-item" href="#">LogOut</a>
+                  <a class="dropdown-item" href="#">ADMIN</a>
+                  <a class="dropdown-item" href="php/logout.php">LogOut</a>
                 </div>
               </li>
             </ul>
@@ -136,37 +153,46 @@
       <!-- End Navbar -->
       <div class="panel-header panel-header-sm">
       </div>
+      
       <div class="content">
         <div class="row">
           <div class="col-lg-12">
             <div class="card card-chart">
+
+              <div class="alert alert-primary" <?php if(isset($_GET['response']) && $_GET['response'] == 200){}else{echo "hidden";} ?>>
+                <button type="button" aria-hidden="true" class="close">
+                  <i class="now-ui-icons ui-1_simple-remove"></i>
+                </button>
+                <span><b> User Added Successfully.</span>
+              </div>
+
+              <div class="alert alert-danger" <?php if(isset($_GET['response']) && $_GET['response'] == 501){}else{echo "hidden";} ?>>
+                <button type="button" aria-hidden="true" class="close">
+                  <i class="now-ui-icons ui-1_simple-remove"></i>
+                </button>
+                <span><b> Failed to add user.</span>
+              </div>
               <div class="card-header">
-                <!-- <h5 class="card-category">Summer 2021</h5> -->
-                <h4 class="card-title">Marks Entry</h4>
-                
+                <h4 class="card-title">New User</h4>
               </div>
               <div class="card-body">
-                <form>
+              <form action="php\add-user.php" method="POST" id="user-form">
                   <div class="row">
-                    <div class="col-md-4 pr-1">
+                    <div class="col-md-6 pr-1">
                       <div class="form-group">
-                        <label>Semester</label>
-                        <input type="text" class="form-control"  placeholder="Ex. Summer 2021">
+                        <label>ID</label>
+                        <input type="text" class="form-control"  placeholder="Ex. 194545645" name="id">
                       </div>
                     </div>
-                    <div class="col-md-4 px-1">
+                    <div class="col-md-6 pl-1">
                       <div class="form-group">
-                        <label>Section</label>
-                        <input type="text" class="form-control"  placeholder="Ex. A, D">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pl-1">
-                      <div class="form-group">
-                        <label>Exam Name</label>
-                        <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round btn-block" title="Single Select">
-                            <option disabled selected>Select an Exam</option>
-                            <option value="2">Mid-term Exam</option>
-                            <option value="3">Final Exam</option>
+                        <label>Role</label>
+                        <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round btn-block" title="Role Select" name="role">
+                            <option disabled selected>Select a Role</option>
+                            <option value="student">Student</option>
+                            <option value="faculty">Faculty</option>
+                            <option value="admin">Admin</option>
+                            <option value="higherManagement">Higher Management</option>
                         </select>
                       </div>
                     </div>
@@ -174,104 +200,35 @@
                   <div class="row">
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
-                        <label>Course Id</label>
-                        <input type="text" class="form-control" placeholder="Ex. CSE-101" >
+                        <label>First Name</label>
+                        <input type="text" class="form-control" placeholder="Ex. John" name="firstName">
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
-                        <label>Student Id</label>
-                        <input type="text" class="form-control" placeholder="Ex. 19554846">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" placeholder="Ex. Smith" name="lastName">
                       </div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-4 pr-1">
+                    <div class="col-md-6 pr-1">
                       <div class="form-group">
-                        <label>Marks for Question 1</label>
-                        <input type="number" class="form-control" placeholder="Ex. 84" >
+                        <label>Email</label>
+                        <input type="emai" class="form-control" placeholder="Ex. johns@mail.com" name="email">
                       </div>
                     </div>
-                    <div class="col-md-2 pl-1">
+                    <div class="col-md-6 pl-1">
                       <div class="form-group">
-                        <label>Course Outcome Index</label>
-                        <input type="number" class="form-control" placeholder="Ex. 5">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pr-1">
-                      <div class="form-group">
-                        <label>Marks for Question 2</label>
-                        <input type="number" class="form-control" placeholder="Ex. 84" >
-                      </div>
-                    </div>
-                    <div class="col-md-2 pl-1">
-                      <div class="form-group">
-                        <label>Course Outcome Index</label>
-                        <input type="number" class="form-control" placeholder="Ex. 5">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4 pr-1">
-                      <div class="form-group">
-                        <label>Marks for Question 1</label>
-                        <input type="number" class="form-control" placeholder="Ex. 84" >
-                      </div>
-                    </div>
-                    <div class="col-md-2 pl-1">
-                      <div class="form-group">
-                        <label>Course Outcome Index</label>
-                        <input type="number" class="form-control" placeholder="Ex. 5">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pr-1">
-                      <div class="form-group">
-                        <label>Marks for Question 2</label>
-                        <input type="number" class="form-control" placeholder="Ex. 84" >
-                      </div>
-                    </div>
-                    <div class="col-md-2 pl-1">
-                      <div class="form-group">
-                        <label>Course Outcome Index</label>
-                        <input type="number" class="form-control" placeholder="Ex. 5">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-4 pr-1">
-                      <div class="form-group">
-                        <label>Marks for Question 1</label>
-                        <input type="number" class="form-control" placeholder="Ex. 84" >
-                      </div>
-                    </div>
-                    <div class="col-md-2 pl-1">
-                      <div class="form-group">
-                        <label>Course Outcome Index</label>
-                        <input type="number" class="form-control" placeholder="Ex. 5">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pr-1">
-                      <div class="form-group">
-                        <label>Marks for Question 2</label>
-                        <input type="number" class="form-control" placeholder="Ex. 84" >
-                      </div>
-                    </div>
-                    <div class="col-md-2 pl-1">
-                      <div class="form-group">
-                        <label>Course Outcome Index</label>
-                        <input type="number" class="form-control" placeholder="Ex. 5">
+                        <label>Password</label>
+                        <input type="text" class="form-control" placeholder="Password" name="password">
                       </div>
                     </div>
                   </div>
                 </form>
               </div>
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-8">
-                    <button type="button" class="btn submit-button">Submit</button>
-                  </div>
-                  <div class="col-4 total-marks">Total : <span id="marks-here">54</span></div>
-                </div>
+              <div class="card-footer" align="center">
+                <button type="button" class="btn submit-button">Add User</button>
               </div>
             </div>
           </div>
@@ -279,7 +236,6 @@
       </div>
       <footer class="footer">
         <div class=" container-fluid ">
-          </nav> -->
           <div class="copyright" id="copyright">
             &copy; <script>
               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
@@ -304,11 +260,14 @@
   <script src="assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="assets/demo/demo.js"></script>
   <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
-
+    
+    $(".submit-button").click(function(){
+      $("#user-form").submit();
     });
+
+    $(".close").click(function(){
+      $(".alert").hide();
+    })
   </script>
 </body>
 

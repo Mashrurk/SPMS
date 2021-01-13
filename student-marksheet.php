@@ -14,6 +14,12 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 -->
+<?php
+  session_start();
+  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'student'){
+    header("Location: login.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +29,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Marksheets | SPMS 
+    Result | SPMS 
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -36,19 +42,22 @@
   <link href="assets/demo/demo.css" rel="stylesheet" />
 
   <style>
+    .active-pro{
+      text-align: center;
+    }
+    #student-name{
+      font-size: 15px;
+      color: #fff;
+      font-weight: 600;
+    }
+    #student-info{
+      font-size: 12px;
+      color: white;
+    }
     .final-result{
       color: #F56332;
       font-size: 18px;
       font-weight: 500;
-    }
-    .sheet-btn{
-      padding: 0 10px 0 10px;
-      font-size: 20px;
-      font-weight: 600;
-    }
-    .sheet-btn:hover{
-      color: #F56332;
-      cursor: pointer;
     }
   </style>
 
@@ -70,25 +79,23 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li>
-            <a href="user.php">
-              <i class="now-ui-icons design_app"></i>
-              <p>User Management</p>
-            </a>
-          </li>
           <li class="active ">
-            <a href="marksheets.php">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Marksheets</p>
+            <a href="dashboard.html">
+              <i class="now-ui-icons design_app"></i>
+              <p>Result</p>
             </a>
           </li>
           <li>
-            <a href="programs.php">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Program Management</p>
-            </a>
+          <li class="active-pro">
+            <div class="col-1">
+
+            </div>
+            <div class="col-11">
+            <p id="student-name">Student Name</p>
+            <p id="student-info">Student info</p>
+            </div>
+            
           </li>
-          <li>
         </ul>
       </div>
     </div>
@@ -104,7 +111,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Marksheets</a>
+            <a class="navbar-brand" href="#pablo">RESULT</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -121,8 +128,8 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">User</a>
-                  <a class="dropdown-item" href="#">LogOut</a>
+                  <a class="dropdown-item" href="#">STUDENT</a>
+                  <a class="dropdown-item" href="php/logout.php">LogOut</a>
                 </div>
               </li>
             </ul>
@@ -137,48 +144,78 @@
           <div class="col-lg-12">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Submitted Marksheets by Faculties</h5>
-                <h4 class="card-title">Marksheets</h4>
+                <!-- <h5 class="card-category">Summer 2021</h5> -->
+                <h4 class="card-title">Summer 2021</h4>
+                
               </div>
               <div class="card-body">
-              <div class="table-responsive">
+                <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
                       <th>
-                        Semester
-                      </th>
-                      <th>
-                        Course Id
+                        Course Code
                       </th>
                       <th>
                         Course Title
                       </th>
                       <th>
-                        Exam name
+                        Credit
                       </th>
                       <th>
-                        Action
+                        CGPA
                       </th>
                       <th>
+                        Grade
+                      </th>
                     </thead>
                     <tbody>
                       <tr>
                         <td>
-                          Summer 2021
+                          CSE-101
                         </td>
+                        <td>
+                          IntroDuction to Computer
+                        </td>
+                        <td>
+                          3
+                        </td>
+                        <td>
+                          4.00
+                        </td>
+                        <td>
+                          A+
+                        </td>
+                      </tr>
+                      <tr>
                         <td>
                           CSE-101
                         </td>
                         <td>
-                          Introduction to Computer
+                          IntroDuction to Computer
                         </td>
                         <td>
-                          Mid-term
+                          3
                         </td>
                         <td>
-                          <span class="sheet-btn" id="more_1" onclick="window.location.assign('marksheet.php');"><i class="now-ui-icons ui-1_zoom-bold"></i></span>
-                          <span class="sheet-btn" id="ok_1"><i class="now-ui-icons ui-1_check"></i></span>
-                          <span class="sheet-btn" id="no_1"><i class="now-ui-icons ui-1_simple-remove"></i></span>                          
+                          4.00
+                        </td>
+                        <td>
+                          A+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td class="final-result">
+                          12
+                        </td>
+                        <td class="final-result">
+                          4.00
+                        </td>
+                        <td class="final-result">
+                          A+
                         </td>
                       </tr>
                     </tbody>
@@ -194,7 +231,6 @@
       </div>
       <footer class="footer">
         <div class=" container-fluid ">
-          
           <div class="copyright" id="copyright">
             &copy; <script>
               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))

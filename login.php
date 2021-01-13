@@ -14,6 +14,21 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 -->
+<?php
+  session_start();
+  if(isset($_SESSION['role'])){
+    if($_SESSION['role'] == 'student'){
+      header("Location: student-marksheet.php");
+    }else if($_SESSION['role'] == 'faculty'){
+      header("Location: faculty-marks-entry.php");
+    }else if($_SESSION['role'] == 'admin'){
+      header("Location: admin-users.php");
+    }else if($_SESSION['role'] == 'higherManagement'){
+      header("Location: index.php");
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,12 +110,12 @@
                     
                   </div>
                   <div class="card-body">
-                    <form>
+                    <form action="php\login.php" method="POST" id="login-form">
                       <div class="row">
                         <div class="col-md-12">
                           <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control"  placeholder="mail@iub.edu.bd">
+                            <input type="email" class="form-control" name="email"  placeholder="mail@iub.edu.bd">
                           </div>
                         </div>
                       </div>
@@ -108,7 +123,7 @@
                         <div class="col-md-12">
                           <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password" >
+                            <input type="password" class="form-control" name="password" placeholder="Password" >
                           </div>
                         </div>
                       </div>
@@ -116,12 +131,12 @@
                         <div class="col-md-12">
                             <div class="form-group">
                               <label>Group</label>
-                              <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round btn-block" title="Single Select">
+                              <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round btn-block" name ="role" title="Select Role">
                                 <option disabled selected>Select your group</option>
-                                <option value="2">Student</option>
-                                <option value="3">Faculty</option>
-                                <option value="4">Admin</option>
-                                <option value="5">Higher Management</option>
+                                <option value="student">Student</option>
+                                <option value="faculty">Faculty</option>
+                                <option value="admin">Admin</option>
+                                <option value="higherManagement">Higher Management</option>
                             </select>
                           </div>
                       </div>
@@ -162,10 +177,8 @@
   <script src="assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="assets/demo/demo.js"></script>
   <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
-
+    $(".submit-button").click(function(){
+      $("#login-form").submit();
     });
   </script>
 </body>

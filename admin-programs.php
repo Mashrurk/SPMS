@@ -14,6 +14,12 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 -->
+<?php
+  session_start();
+  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
+    header("Location: login.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +29,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Result | SPMS 
+    Program Management | SPMS 
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -36,18 +42,6 @@
   <link href="assets/demo/demo.css" rel="stylesheet" />
 
   <style>
-    .active-pro{
-      text-align: center;
-    }
-    #student-name{
-      font-size: 15px;
-      color: #fff;
-      font-weight: 600;
-    }
-    #student-info{
-      font-size: 12px;
-      color: white;
-    }
     .final-result{
       color: #F56332;
       font-size: 18px;
@@ -73,23 +67,31 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
-            <a href="dashboard.html">
+          <li>
+            <a href="admin-users.php">
               <i class="now-ui-icons design_app"></i>
-              <p>Result</p>
+              <p>User Management</p>
             </a>
           </li>
           <li>
-          <li class="active-pro">
-            <div class="col-1">
-
-            </div>
-            <div class="col-11">
-            <p id="student-name">Student Name</p>
-            <p id="student-info">Student info</p>
-            </div>
-            
+            <a href="admin-marksheets.php">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Marksheets</p>
+            </a>
           </li>
+          <li class="active ">
+            <a href="admin-programs.php">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Program Management</p>
+            </a>
+          </li>
+          <li>
+            <a href="admin-courses.php">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Course Management</p>
+            </a>
+          </li>
+          <li>
         </ul>
       </div>
     </div>
@@ -105,7 +107,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">RESULT</a>
+            <a class="navbar-brand" href="#pablo">User List</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -122,8 +124,8 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">User</a>
-                  <a class="dropdown-item" href="#">LogOut</a>
+                  <a class="dropdown-item" href="#">ADMIN</a>
+                  <a class="dropdown-item" href="php/logout.php">LogOut</a>
                 </div>
               </li>
             </ul>
@@ -138,78 +140,70 @@
           <div class="col-lg-12">
             <div class="card card-chart">
               <div class="card-header">
-                <!-- <h5 class="card-category">Summer 2021</h5> -->
-                <h4 class="card-title">Summer 2021</h4>
-                
+                <!-- <h5 class="card-category">Submitted Marksheets by Faculties</h5> -->
+                <h4 class="card-title">Programs List</h4>
+                <div class="dropdown">
+                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                    <i class="now-ui-icons loader_gear"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item user-add-btn" href="admin-add-user.php">New Program</a>
+                  </div>
+                </div>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table">
+                  <table class="table" id="datatable">
                     <thead class=" text-primary">
                       <th>
-                        Course Code
+                        ID
                       </th>
                       <th>
-                        Course Title
+                        Full Name
                       </th>
                       <th>
-                        Credit
+                        Email
                       </th>
                       <th>
-                        CGPA
+                        Role
                       </th>
                       <th>
-                        Grade
+                        Added
                       </th>
                     </thead>
                     <tbody>
                       <tr>
                         <td>
-                          CSE-101
+                          1545646
                         </td>
                         <td>
-                          IntroDuction to Computer
+                          John Smith
                         </td>
                         <td>
-                          3
+                          john.smith@mail.com
                         </td>
                         <td>
-                          4.00
+                          Student
                         </td>
                         <td>
-                          A+
+                          2021-01-05 14:35:12
                         </td>
                       </tr>
                       <tr>
                         <td>
-                          CSE-101
+                          15545
                         </td>
                         <td>
-                          IntroDuction to Computer
+                          Arer Cartus
                         </td>
                         <td>
-                          3
+                          arter@email.org
                         </td>
                         <td>
-                          4.00
+                          Admin
                         </td>
                         <td>
-                          A+
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-                        <td class="final-result">
-                          12
-                        </td>
-                        <td class="final-result">
-                          4.00
-                        </td>
-                        <td class="final-result">
-                          A+
+                          2021-01-05 14:35:12
                         </td>
                       </tr>
                     </tbody>
@@ -241,6 +235,9 @@
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+  <script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+
   <!-- Chart JS -->
   <script src="assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -252,6 +249,7 @@
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       demo.initDashboardPageCharts();
+      $('#datatable').DataTable();
 
     });
   </script>

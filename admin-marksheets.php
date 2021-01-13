@@ -16,7 +16,7 @@
 -->
 <?php
   session_start();
-  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'faculty'){
+  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
     header("Location: login.php");
   }
 ?>
@@ -29,7 +29,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Admin-Feedback | SPMS 
+    Marksheets | SPMS 
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -47,7 +47,12 @@
       font-size: 18px;
       font-weight: 500;
     }
-    .warns:hover{
+    .sheet-btn{
+      padding: 0 10px 0 10px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .sheet-btn:hover{
       color: #F56332;
       cursor: pointer;
     }
@@ -72,15 +77,27 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="faculty.php">
+            <a href="admin-users.php">
               <i class="now-ui-icons design_app"></i>
-              <p>Marks Entry</p>
+              <p>User Management</p>
             </a>
           </li>
           <li class="active ">
-            <a href="#">
+            <a href="admin-marksheets.php">
               <i class="now-ui-icons education_atom"></i>
-              <p>Admin Feedback</p>
+              <p>Marksheets</p>
+            </a>
+          </li>
+          <li>
+            <a href="admin-programs.php">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Program Management</p>
+            </a>
+          </li>
+          <li>
+            <a href="admin-courses.php">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Course Management</p>
             </a>
           </li>
           <li>
@@ -99,7 +116,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Admin Feedback</a>
+            <a class="navbar-brand" href="#pablo">Marksheets</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -116,7 +133,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Faculty</a>
+                  <a class="dropdown-item" href="#">ADMIN</a>
                   <a class="dropdown-item" href="php/logout.php">LogOut</a>
                 </div>
               </li>
@@ -132,11 +149,11 @@
           <div class="col-lg-12">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Admin Comments on Marksheets</h5>
-                <h4 class="card-title">Feedback</h4>
+                <h5 class="card-category">Submitted Marksheets by Faculties</h5>
+                <h4 class="card-title">Marksheets</h4>
               </div>
               <div class="card-body">
-                <div class="table-responsive">
+              <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
                       <th>
@@ -152,9 +169,12 @@
                         Exam name
                       </th>
                       <th>
+                        Action
+                      </th>
+                      <th>
                     </thead>
                     <tbody>
-                      <tr class="warns" id="warn1">
+                      <tr>
                         <td>
                           Summer 2021
                         </td>
@@ -166,6 +186,11 @@
                         </td>
                         <td>
                           Mid-term
+                        </td>
+                        <td>
+                          <span class="sheet-btn" id="more_1" onclick="window.location.assign('admin-marksheet-solo.php');"><i class="now-ui-icons ui-1_zoom-bold"></i></span>
+                          <span class="sheet-btn" id="ok_1"><i class="now-ui-icons ui-1_check"></i></span>
+                          <span class="sheet-btn" id="no_1"><i class="now-ui-icons ui-1_simple-remove"></i></span>                          
                         </td>
                       </tr>
                     </tbody>
@@ -181,6 +206,7 @@
       </div>
       <footer class="footer">
         <div class=" container-fluid ">
+          
           <div class="copyright" id="copyright">
             &copy; <script>
               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
@@ -210,11 +236,6 @@
       demo.initDashboardPageCharts();
 
     });
-
-    $("#warn1").click(function(){
-      alert('test');
-    });
-
   </script>
 </body>
 
