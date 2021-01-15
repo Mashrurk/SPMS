@@ -107,7 +107,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">User List</a>
+            <a class="navbar-brand" href="#pablo">Course List</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -141,13 +141,13 @@
             <div class="card card-chart">
               <div class="card-header">
                 <!-- <h5 class="card-category">Submitted Marksheets by Faculties</h5> -->
-                <h4 class="card-title">Programs List</h4>
+                <h4 class="card-title">Course List</h4>
                 <div class="dropdown">
                   <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
                     <i class="now-ui-icons loader_gear"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item user-add-btn" href="admin-add-user.php">New Program</a>
+                    <a class="dropdown-item user-add-btn" href="admin-add-course.php">New Course</a>
                   </div>
                 </div>
               </div>
@@ -156,54 +156,31 @@
                   <table class="table" id="datatable">
                     <thead class=" text-primary">
                       <th>
-                        ID
+                        Course ID
                       </th>
                       <th>
-                        Full Name
+                        Course Title
                       </th>
                       <th>
-                        Email
+                        Program ID
                       </th>
                       <th>
-                        Role
-                      </th>
-                      <th>
-                        Added
+                        Credit
                       </th>
                     </thead>
                     <tbody>
                       <tr>
                         <td>
-                          1545646
+                          CSE-101
                         </td>
                         <td>
-                          John Smith
+                          Introduction to Computer
                         </td>
                         <td>
-                          john.smith@mail.com
+                          CSE
                         </td>
                         <td>
-                          Student
-                        </td>
-                        <td>
-                          2021-01-05 14:35:12
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          15545
-                        </td>
-                        <td>
-                          Arer Cartus
-                        </td>
-                        <td>
-                          arter@email.org
-                        </td>
-                        <td>
-                          Admin
-                        </td>
-                        <td>
-                          2021-01-05 14:35:12
+                         3.00
                         </td>
                       </tr>
                     </tbody>

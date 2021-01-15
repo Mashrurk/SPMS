@@ -107,7 +107,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">User List</a>
+            <a class="navbar-brand" href="#pablo">Program List</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -147,7 +147,7 @@
                     <i class="now-ui-icons loader_gear"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item user-add-btn" href="admin-add-user.php">New Program</a>
+                    <a class="dropdown-item user-add-btn" href="admin-add-program.php">New Program</a>
                   </div>
                 </div>
               </div>
@@ -159,51 +159,28 @@
                         ID
                       </th>
                       <th>
-                        Full Name
+                        Program Title
                       </th>
                       <th>
-                        Email
+                        School
                       </th>
                       <th>
-                        Role
-                      </th>
-                      <th>
-                        Added
+                        Total PLO
                       </th>
                     </thead>
                     <tbody>
                       <tr>
                         <td>
-                          1545646
+                          CSE
                         </td>
                         <td>
-                          John Smith
+                          Coputer Science and Engineering
                         </td>
                         <td>
-                          john.smith@mail.com
+                          Modern Science
                         </td>
                         <td>
-                          Student
-                        </td>
-                        <td>
-                          2021-01-05 14:35:12
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          15545
-                        </td>
-                        <td>
-                          Arer Cartus
-                        </td>
-                        <td>
-                          arter@email.org
-                        </td>
-                        <td>
-                          Admin
-                        </td>
-                        <td>
-                          2021-01-05 14:35:12
+                          13
                         </td>
                       </tr>
                     </tbody>

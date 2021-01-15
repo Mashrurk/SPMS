@@ -178,16 +178,22 @@
               <div class="card-body">
               <form action="php\add-user.php" method="POST" id="user-form">
                   <div class="row">
-                    <div class="col-md-6 pr-1">
+                    <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>ID</label>
                         <input type="text" class="form-control"  placeholder="Ex. 194545645" name="id">
                       </div>
                     </div>
-                    <div class="col-md-6 pl-1">
+                    <div class="col-md-4 px-1">
+                      <div class="form-group">
+                        <label>Department ID</label>
+                        <input type="text" class="form-control"  placeholder="Ex. CSE, EEE" id="program_id" name="programId" disabled>
+                      </div>
+                    </div>
+                    <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label>Role</label>
-                        <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round btn-block" title="Role Select" name="role">
+                        <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round btn-block" id="role-picker" title="Role Select" name="role">
                             <option disabled selected>Select a Role</option>
                             <option value="student">Student</option>
                             <option value="faculty">Faculty</option>
@@ -268,6 +274,14 @@
     $(".close").click(function(){
       $(".alert").hide();
     })
+
+    $("#role-picker").change(function(){
+      if($("#role-picker").val() == "student"){
+        $("#program_id").prop("disabled", false);
+      }else{
+        $("#program_id").prop("disabled", true);
+      }
+    });
   </script>
 </body>
 

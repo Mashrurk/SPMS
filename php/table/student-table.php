@@ -7,7 +7,9 @@
         firstName VARCHAR(100) NOT NULL,
         lastName VARCHAR(100) NOT NULL,
         email VARCHAR(250) NOT NULL UNIQUE,
-        password VARCHAR(200) NOT NULL
+        programId VARCHAR(50) NOT NULL,
+        password VARCHAR(200) NOT NULL,
+        FOREIGN KEY (programID) REFERENCES program(id) 
     )";
 
     if ($conn->query($table) === TRUE) {
