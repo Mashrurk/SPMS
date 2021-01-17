@@ -3,7 +3,7 @@
 
     $table = "CREATE TABLE co(
         serial INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        courseId VARCHAR(100) NOT NULL UNIQUE, 
+        courseId VARCHAR(100) NOT NULL, 
         ploId INT NOT NULL UNIQUE,
         co1 BOOLEAN NULL,
         co2 BOOLEAN NULL,

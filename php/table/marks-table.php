@@ -21,10 +21,6 @@
         mark7Co INT NULL,
         mark8 INT NULL,
         mark8Co INT NULL,
-        mark9 INT NULL,
-        mark9Co INT NULL,
-        mark10 INT NULL,
-        mark10Co INT NULL,
         FOREIGN KEY (examId) REFERENCES exam(serial),
         FOREIGN KEY (studentId) REFERENCES student(id)
     )";

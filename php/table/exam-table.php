@@ -7,6 +7,15 @@
         section VARCHAR(10) NOT NULL,
         examName VARCHAR(50) NOT NULL,
         courseId VARCHAR(100) NOT NULL,
+        status boolean NULL,
+        q1Max INT NULL,
+        q2Max INT NULL,
+        q3Max INT NULL,
+        q4Max INT NULL,
+        q5Max INT NULL,
+        q6Max INT NULL,
+        q7Max INT NULL,
+        q8Max INT NULL,
         FOREIGN KEY (courseId) REFERENCES course(id)
     )";
 

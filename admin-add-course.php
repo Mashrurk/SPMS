@@ -5,7 +5,7 @@
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/now-ui-dashboard
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
+* Copyright 2019 Creative Tim (#)
 
 * Designed by www.invisionapp.com Coded by www.creative-tim.com
 
@@ -29,7 +29,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Add Program | SPMS 
+    Add Course | SPMS 
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -77,10 +77,10 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="#" class="simple-text logo-mini">
           IUB
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="#" class="simple-text logo-normal">
           SPMS
         </a>
       </div>
@@ -186,7 +186,7 @@
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
-                        <label>Course Title</label>
+                        <label>Course Id</label>
                         <input type="text" class="form-control"  placeholder="Ex. 194545645" name="courseId">
                       </div>
                     </div>
@@ -215,61 +215,61 @@
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO1</label>
-                        <input type="checkbox" class="form-control" value="1" name="plo1-co">
+                        <input type="checkbox" class="form-control" value="1" name="plo1-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO2</label>
-                        <input type="checkbox" class="form-control" value="2" name="plo1-co">
+                        <input type="checkbox" class="form-control" value="2" name="plo1-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO3</label>
-                        <input type="checkbox" class="form-control" value="3" name="plo1-co">
+                        <input type="checkbox" class="form-control" value="3" name="plo1-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO4</label>
-                        <input type="checkbox" class="form-control" value="4" name="plo1-co">
+                        <input type="checkbox" class="form-control" value="4" name="plo1-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO5</label>
-                        <input type="checkbox" class="form-control" value="5" name="plo1-co">
+                        <input type="checkbox" class="form-control" value="5" name="plo1-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO6</label>
-                        <input type="checkbox" class="form-control" value="6" name="plo1-co">
+                        <input type="checkbox" class="form-control" value="6" name="plo1-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO7</label>
-                        <input type="checkbox" class="form-control" value="7" name="plo1-co">
+                        <input type="checkbox" class="form-control" value="7" name="plo1-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO8</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo1-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo1-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO9</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo1-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo1-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO10</label>
-                        <input type="checkbox" class="form-control" value="9" name="plo1-co">
+                        <input type="checkbox" class="form-control" value="9" name="plo1-co[]">
                       </div>
                     </div>
                   </div>
@@ -283,61 +283,61 @@
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO1</label>
-                        <input type="checkbox" class="form-control" value="1" name="plo-2co">
+                        <input type="checkbox" class="form-control" value="1" name="plo2-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO2</label>
-                        <input type="checkbox" class="form-control" value="2" name="plo2-co">
+                        <input type="checkbox" class="form-control" value="2" name="plo2-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO3</label>
-                        <input type="checkbox" class="form-control" value="3" name="plo2-co">
+                        <input type="checkbox" class="form-control" value="3" name="plo2-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO4</label>
-                        <input type="checkbox" class="form-control" value="4" name="plo2-co">
+                        <input type="checkbox" class="form-control" value="4" name="plo2-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO5</label>
-                        <input type="checkbox" class="form-control" value="5" name="plo2-co">
+                        <input type="checkbox" class="form-control" value="5" name="plo2-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO6</label>
-                        <input type="checkbox" class="form-control" value="6" name="plo2-co">
+                        <input type="checkbox" class="form-control" value="6" name="plo2-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO7</label>
-                        <input type="checkbox" class="form-control" value="7" name="plo2-co">
+                        <input type="checkbox" class="form-control" value="7" name="plo2-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO8</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo2-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo2-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO9</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo2-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo2-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO10</label>
-                        <input type="checkbox" class="form-control" value="9" name="plo2-co">
+                        <input type="checkbox" class="form-control" value="9" name="plo2-co[]">
                       </div>
                     </div>
                   </div>
@@ -351,61 +351,61 @@
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO1</label>
-                        <input type="checkbox" class="form-control" value="1" name="plo3-co">
+                        <input type="checkbox" class="form-control" value="1" name="plo3-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO2</label>
-                        <input type="checkbox" class="form-control" value="2" name="plo3-co">
+                        <input type="checkbox" class="form-control" value="2" name="plo3-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO3</label>
-                        <input type="checkbox" class="form-control" value="3" name="plo3-co">
+                        <input type="checkbox" class="form-control" value="3" name="plo3-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO4</label>
-                        <input type="checkbox" class="form-control" value="4" name="plo3-co">
+                        <input type="checkbox" class="form-control" value="4" name="plo3-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO5</label>
-                        <input type="checkbox" class="form-control" value="5" name="plo3-co">
+                        <input type="checkbox" class="form-control" value="5" name="plo3-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO6</label>
-                        <input type="checkbox" class="form-control" value="6" name="plo3-co">
+                        <input type="checkbox" class="form-control" value="6" name="plo3-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO7</label>
-                        <input type="checkbox" class="form-control" value="7" name="plo3-co">
+                        <input type="checkbox" class="form-control" value="7" name="plo3-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO8</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo3-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo3-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO9</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo3-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo3-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO10</label>
-                        <input type="checkbox" class="form-control" value="9" name="plo3-co">
+                        <input type="checkbox" class="form-control" value="9" name="plo3-co[]">
                       </div>
                     </div>
                   </div>
@@ -419,61 +419,61 @@
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO1</label>
-                        <input type="checkbox" class="form-control" value="1" name="plo4-co">
+                        <input type="checkbox" class="form-control" value="1" name="plo4-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO2</label>
-                        <input type="checkbox" class="form-control" value="2" name="plo4-co">
+                        <input type="checkbox" class="form-control" value="2" name="plo4-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO3</label>
-                        <input type="checkbox" class="form-control" value="3" name="plo4-co">
+                        <input type="checkbox" class="form-control" value="3" name="plo4-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO4</label>
-                        <input type="checkbox" class="form-control" value="4" name="plo4-co">
+                        <input type="checkbox" class="form-control" value="4" name="plo4-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO5</label>
-                        <input type="checkbox" class="form-control" value="5" name="plo4-co">
+                        <input type="checkbox" class="form-control" value="5" name="plo4-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO6</label>
-                        <input type="checkbox" class="form-control" value="6" name="plo4-co">
+                        <input type="checkbox" class="form-control" value="6" name="plo4-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO7</label>
-                        <input type="checkbox" class="form-control" value="7" name="plo4-co">
+                        <input type="checkbox" class="form-control" value="7" name="plo4-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO8</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo4-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo4-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO9</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo4-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo4-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO10</label>
-                        <input type="checkbox" class="form-control" value="9" name="plo4-co">
+                        <input type="checkbox" class="form-control" value="9" name="plo4-co[]">
                       </div>
                     </div>
                   </div>
@@ -487,61 +487,61 @@
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO1</label>
-                        <input type="checkbox" class="form-control" value="1" name="plo5-co">
+                        <input type="checkbox" class="form-control" value="1" name="plo5-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO2</label>
-                        <input type="checkbox" class="form-control" value="2" name="plo5-co">
+                        <input type="checkbox" class="form-control" value="2" name="plo5-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO3</label>
-                        <input type="checkbox" class="form-control" value="3" name="plo5-co">
+                        <input type="checkbox" class="form-control" value="3" name="plo5-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO4</label>
-                        <input type="checkbox" class="form-control" value="4" name="plo5-co">
+                        <input type="checkbox" class="form-control" value="4" name="plo5-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO5</label>
-                        <input type="checkbox" class="form-control" value="5" name="plo5-co">
+                        <input type="checkbox" class="form-control" value="5" name="plo5-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO6</label>
-                        <input type="checkbox" class="form-control" value="6" name="plo5-co">
+                        <input type="checkbox" class="form-control" value="6" name="plo5-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO7</label>
-                        <input type="checkbox" class="form-control" value="7" name="plo5-co">
+                        <input type="checkbox" class="form-control" value="7" name="plo5-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO8</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo5-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo5-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO9</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo5-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo5-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO10</label>
-                        <input type="checkbox" class="form-control" value="9" name="plo5-co">
+                        <input type="checkbox" class="form-control" value="9" name="plo5-co[]">
                       </div>
                     </div>
                   </div>
@@ -555,61 +555,61 @@
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO1</label>
-                        <input type="checkbox" class="form-control" value="1" name="plo6-co">
+                        <input type="checkbox" class="form-control" value="1" name="plo6-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO2</label>
-                        <input type="checkbox" class="form-control" value="2" name="plo6-co">
+                        <input type="checkbox" class="form-control" value="2" name="plo6-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO3</label>
-                        <input type="checkbox" class="form-control" value="3" name="plo6-co">
+                        <input type="checkbox" class="form-control" value="3" name="plo6-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO4</label>
-                        <input type="checkbox" class="form-control" value="4" name="plo6-co">
+                        <input type="checkbox" class="form-control" value="4" name="plo6-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO5</label>
-                        <input type="checkbox" class="form-control" value="5" name="plo6-co">
+                        <input type="checkbox" class="form-control" value="5" name="plo6-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO6</label>
-                        <input type="checkbox" class="form-control" value="6" name="plo6-co">
+                        <input type="checkbox" class="form-control" value="6" name="plo6-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO7</label>
-                        <input type="checkbox" class="form-control" value="7" name="plo6-co">
+                        <input type="checkbox" class="form-control" value="7" name="plo6-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO8</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo6-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo6-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO9</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo6-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo6-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO10</label>
-                        <input type="checkbox" class="form-control" value="9" name="plo6-co">
+                        <input type="checkbox" class="form-control" value="9" name="plo6-co[]">
                       </div>
                     </div>
                   </div>
@@ -623,61 +623,61 @@
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO1</label>
-                        <input type="checkbox" class="form-control" value="1" name="plo7-co">
+                        <input type="checkbox" class="form-control" value="1" name="plo7-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO2</label>
-                        <input type="checkbox" class="form-control" value="2" name="plo7-co">
+                        <input type="checkbox" class="form-control" value="2" name="plo7-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO3</label>
-                        <input type="checkbox" class="form-control" value="3" name="plo7-co">
+                        <input type="checkbox" class="form-control" value="3" name="plo7-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO4</label>
-                        <input type="checkbox" class="form-control" value="4" name="plo7-co">
+                        <input type="checkbox" class="form-control" value="4" name="plo7-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO5</label>
-                        <input type="checkbox" class="form-control" value="5" name="plo7-co">
+                        <input type="checkbox" class="form-control" value="5" name="plo7-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO6</label>
-                        <input type="checkbox" class="form-control" value="6" name="plo7-co">
+                        <input type="checkbox" class="form-control" value="6" name="plo7-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO7</label>
-                        <input type="checkbox" class="form-control" value="7" name="plo7-co">
+                        <input type="checkbox" class="form-control" value="7" name="plo7-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO8</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo7-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo7-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO9</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo7-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo7-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO10</label>
-                        <input type="checkbox" class="form-control" value="9" name="plo7-co">
+                        <input type="checkbox" class="form-control" value="9" name="plo7-co[]">
                       </div>
                     </div>
                   </div>
@@ -691,61 +691,61 @@
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO1</label>
-                        <input type="checkbox" class="form-control" value="1" name="plo8-co">
+                        <input type="checkbox" class="form-control" value="1" name="plo8-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO2</label>
-                        <input type="checkbox" class="form-control" value="2" name="plo8-co">
+                        <input type="checkbox" class="form-control" value="2" name="plo8-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO3</label>
-                        <input type="checkbox" class="form-control" value="3" name="plo8-co">
+                        <input type="checkbox" class="form-control" value="3" name="plo8-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO4</label>
-                        <input type="checkbox" class="form-control" value="4" name="plo8-co">
+                        <input type="checkbox" class="form-control" value="4" name="plo8-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO5</label>
-                        <input type="checkbox" class="form-control" value="5" name="plo8-co">
+                        <input type="checkbox" class="form-control" value="5" name="plo8-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO6</label>
-                        <input type="checkbox" class="form-control" value="6" name="plo8-co">
+                        <input type="checkbox" class="form-control" value="6" name="plo8-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO7</label>
-                        <input type="checkbox" class="form-control" value="7" name="plo8-co">
+                        <input type="checkbox" class="form-control" value="7" name="plo8-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO8</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo8-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo8-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO9</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo8-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo8-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO10</label>
-                        <input type="checkbox" class="form-control" value="9" name="plo8-co">
+                        <input type="checkbox" class="form-control" value="9" name="plo8-co[]">
                       </div>
                     </div>
                   </div>
@@ -759,61 +759,61 @@
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO1</label>
-                        <input type="checkbox" class="form-control" value="1" name="plo9-co">
+                        <input type="checkbox" class="form-control" value="1" name="plo9-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO2</label>
-                        <input type="checkbox" class="form-control" value="2" name="plo9-co">
+                        <input type="checkbox" class="form-control" value="2" name="plo9-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO3</label>
-                        <input type="checkbox" class="form-control" value="3" name="plo9-co">
+                        <input type="checkbox" class="form-control" value="3" name="plo9-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO4</label>
-                        <input type="checkbox" class="form-control" value="4" name="plo9-co">
+                        <input type="checkbox" class="form-control" value="4" name="plo9-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO5</label>
-                        <input type="checkbox" class="form-control" value="5" name="plo9-co">
+                        <input type="checkbox" class="form-control" value="5" name="plo9-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO6</label>
-                        <input type="checkbox" class="form-control" value="6" name="plo9-co">
+                        <input type="checkbox" class="form-control" value="6" name="plo9-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO7</label>
-                        <input type="checkbox" class="form-control" value="7" name="plo9-co">
+                        <input type="checkbox" class="form-control" value="7" name="plo9-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO8</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo9-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo9-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO9</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo9-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo9-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO10</label>
-                        <input type="checkbox" class="form-control" value="9" name="plo9-co">
+                        <input type="checkbox" class="form-control" value="9" name="plo9-co[]">
                       </div>
                     </div>
                   </div>
@@ -827,61 +827,61 @@
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO1</label>
-                        <input type="checkbox" class="form-control" value="1" name="plo10-co">
+                        <input type="checkbox" class="form-control" value="1" name="plo10-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO2</label>
-                        <input type="checkbox" class="form-control" value="2" name="plo10-co">
+                        <input type="checkbox" class="form-control" value="2" name="plo10-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO3</label>
-                        <input type="checkbox" class="form-control" value="3" name="plo10-co">
+                        <input type="checkbox" class="form-control" value="3" name="plo10-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO4</label>
-                        <input type="checkbox" class="form-control" value="4" name="plo10-co">
+                        <input type="checkbox" class="form-control" value="4" name="plo10-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO5</label>
-                        <input type="checkbox" class="form-control" value="5" name="plo10-co">
+                        <input type="checkbox" class="form-control" value="5" name="plo10-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO6</label>
-                        <input type="checkbox" class="form-control" value="6" name="plo10-co">
+                        <input type="checkbox" class="form-control" value="6" name="plo10-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO7</label>
-                        <input type="checkbox" class="form-control" value="7" name="plo10-co">
+                        <input type="checkbox" class="form-control" value="7" name="plo10-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO8</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo10-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo10-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO9</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo10-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo10-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO10</label>
-                        <input type="checkbox" class="form-control" value="9" name="plo10-co">
+                        <input type="checkbox" class="form-control" value="9" name="plo10-co[]">
                       </div>
                     </div>
                   </div>
@@ -895,61 +895,61 @@
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO1</label>
-                        <input type="checkbox" class="form-control" value="1" name="plo11-co">
+                        <input type="checkbox" class="form-control" value="1" name="plo11-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO2</label>
-                        <input type="checkbox" class="form-control" value="2" name="plo11-co">
+                        <input type="checkbox" class="form-control" value="2" name="plo11-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO3</label>
-                        <input type="checkbox" class="form-control" value="3" name="plo11-co">
+                        <input type="checkbox" class="form-control" value="3" name="plo11-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO4</label>
-                        <input type="checkbox" class="form-control" value="4" name="plo11-co">
+                        <input type="checkbox" class="form-control" value="4" name="plo11-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO5</label>
-                        <input type="checkbox" class="form-control" value="5" name="plo11-co">
+                        <input type="checkbox" class="form-control" value="5" name="plo11-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO6</label>
-                        <input type="checkbox" class="form-control" value="6" name="plo11-co">
+                        <input type="checkbox" class="form-control" value="6" name="plo11-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO7</label>
-                        <input type="checkbox" class="form-control" value="7" name="plo11-co">
+                        <input type="checkbox" class="form-control" value="7" name="plo11-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO8</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo11-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo11-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO9</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo11-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo11-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO10</label>
-                        <input type="checkbox" class="form-control" value="9" name="plo11-co">
+                        <input type="checkbox" class="form-control" value="9" name="plo11-co[]">
                       </div>
                     </div>
                   </div>
@@ -963,61 +963,61 @@
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO1</label>
-                        <input type="checkbox" class="form-control" value="1" name="plo12-co">
+                        <input type="checkbox" class="form-control" value="1" name="plo12-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO2</label>
-                        <input type="checkbox" class="form-control" value="2" name="plo12-co">
+                        <input type="checkbox" class="form-control" value="2" name="plo12-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO3</label>
-                        <input type="checkbox" class="form-control" value="3" name="plo12-co">
+                        <input type="checkbox" class="form-control" value="3" name="plo12-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO4</label>
-                        <input type="checkbox" class="form-control" value="4" name="plo12-co">
+                        <input type="checkbox" class="form-control" value="4" name="plo12-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO5</label>
-                        <input type="checkbox" class="form-control" value="5" name="plo12-co">
+                        <input type="checkbox" class="form-control" value="5" name="plo12-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO6</label>
-                        <input type="checkbox" class="form-control" value="6" name="plo12-co">
+                        <input type="checkbox" class="form-control" value="6" name="plo12-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO7</label>
-                        <input type="checkbox" class="form-control" value="7" name="plo12-co">
+                        <input type="checkbox" class="form-control" value="7" name="plo12-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO8</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo12-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo12-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO9</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo12-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo12-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO10</label>
-                        <input type="checkbox" class="form-control" value="9" name="plo12-co">
+                        <input type="checkbox" class="form-control" value="9" name="plo12-co[]">
                       </div>
                     </div>
                   </div>
@@ -1031,61 +1031,129 @@
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO1</label>
-                        <input type="checkbox" class="form-control" value="1" name="plo13-co">
+                        <input type="checkbox" class="form-control" value="1" name="plo13-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO2</label>
-                        <input type="checkbox" class="form-control" value="2" name="plo13-co">
+                        <input type="checkbox" class="form-control" value="2" name="plo13-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO3</label>
-                        <input type="checkbox" class="form-control" value="3" name="plo13-co">
+                        <input type="checkbox" class="form-control" value="3" name="plo13-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO4</label>
-                        <input type="checkbox" class="form-control" value="4" name="plo13-co">
+                        <input type="checkbox" class="form-control" value="4" name="plo13-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO5</label>
-                        <input type="checkbox" class="form-control" value="5" name="plo13-co">
+                        <input type="checkbox" class="form-control" value="5" name="plo13-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO6</label>
-                        <input type="checkbox" class="form-control" value="6" name="plo13-co">
+                        <input type="checkbox" class="form-control" value="6" name="plo13-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO7</label>
-                        <input type="checkbox" class="form-control" value="7" name="plo13-co">
+                        <input type="checkbox" class="form-control" value="7" name="plo13-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO8</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo13-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo13-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO9</label>
-                        <input type="checkbox" class="form-control" value="8" name="plo13-co">
+                        <input type="checkbox" class="form-control" value="8" name="plo13-co[]">
                       </div>
                     </div>
                     <div class="col-md-1 pl-1" align="center">
                       <div class="form-group">
                         <label>CO10</label>
-                        <input type="checkbox" class="form-control" value="9" name="plo13-co">
+                        <input type="checkbox" class="form-control" value="9" name="plo13-co[]">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2 pr-1">
+                      <div class="form-group">
+                        <label>PLO Index</label>
+                        <input type="text" class="form-control" placeholder="Ex. Smith" name="plo14" value="14">
+                      </div>
+                    </div>
+                    <div class="col-md-1 pl-1" align="center">
+                      <div class="form-group">
+                        <label>CO1</label>
+                        <input type="checkbox" class="form-control" value="1" name="plo14-co[]">
+                      </div>
+                    </div>
+                    <div class="col-md-1 pl-1" align="center">
+                      <div class="form-group">
+                        <label>CO2</label>
+                        <input type="checkbox" class="form-control" value="2" name="plo14-co[]">
+                      </div>
+                    </div>
+                    <div class="col-md-1 pl-1" align="center">
+                      <div class="form-group">
+                        <label>CO3</label>
+                        <input type="checkbox" class="form-control" value="3" name="plo14-co[]">
+                      </div>
+                    </div>
+                    <div class="col-md-1 pl-1" align="center">
+                      <div class="form-group">
+                        <label>CO4</label>
+                        <input type="checkbox" class="form-control" value="4" name="plo14-co[]">
+                      </div>
+                    </div>
+                    <div class="col-md-1 pl-1" align="center">
+                      <div class="form-group">
+                        <label>CO5</label>
+                        <input type="checkbox" class="form-control" value="5" name="plo14-co[]">
+                      </div>
+                    </div>
+                    <div class="col-md-1 pl-1" align="center">
+                      <div class="form-group">
+                        <label>CO6</label>
+                        <input type="checkbox" class="form-control" value="6" name="plo14-co[]">
+                      </div>
+                    </div>
+                    <div class="col-md-1 pl-1" align="center">
+                      <div class="form-group">
+                        <label>CO7</label>
+                        <input type="checkbox" class="form-control" value="7" name="plo14-co[]">
+                      </div>
+                    </div>
+                    <div class="col-md-1 pl-1" align="center">
+                      <div class="form-group">
+                        <label>CO8</label>
+                        <input type="checkbox" class="form-control" value="8" name="plo14-co[]">
+                      </div>
+                    </div>
+                    <div class="col-md-1 pl-1" align="center">
+                      <div class="form-group">
+                        <label>CO9</label>
+                        <input type="checkbox" class="form-control" value="8" name="plo14-co[]">
+                      </div>
+                    </div>
+                    <div class="col-md-1 pl-1" align="center">
+                      <div class="form-group">
+                        <label>CO10</label>
+                        <input type="checkbox" class="form-control" value="9" name="plo14-co[]">
                       </div>
                     </div>
                   </div>

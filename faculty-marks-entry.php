@@ -5,7 +5,7 @@
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/now-ui-dashboard
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
+* Copyright 2019 Creative Tim (#)
 
 * Designed by www.invisionapp.com Coded by www.creative-tim.com
 
@@ -69,6 +69,12 @@
       outline: none;
       border-color: #F56332;
     }
+    .data-file{
+      margin-top: 10px;
+      padding: 25px;
+      background-color: #E3E3E3;
+      border-radius: 5px;
+    }
   </style>
 
 </head>
@@ -77,10 +83,10 @@
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="#" class="simple-text logo-mini">
           IUB
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="#" class="simple-text logo-normal">
           SPMS
         </a>
       </div>
@@ -152,27 +158,28 @@
                 
               </div>
               <div class="card-body">
-                <form>
+                <form action="php/add-marks.php" method="POST" id="marks-form">
                   <div class="row">
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>Semester</label>
-                        <input type="text" class="form-control"  placeholder="Ex. Summer 2021">
+                        <input type="text" class="form-control"  placeholder="Ex. Summer 2021" name="semester">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>Section</label>
-                        <input type="text" class="form-control"  placeholder="Ex. A, D">
+                        <input type="text" class="form-control"  placeholder="Ex. A, D" name="section">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label>Exam Name</label>
-                        <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round btn-block" title="Single Select">
+                        <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round btn-block"  name="exam" title="Exam Select">
                             <option disabled selected>Select an Exam</option>
-                            <option value="2">Mid-term Exam</option>
-                            <option value="3">Final Exam</option>
+                            <option value="mid">Mid-term Exam</option>
+                            <option value="final">Final Exam</option>
+                            <option value="project">Project</option>
                         </select>
                       </div>
                     </div>
@@ -181,13 +188,13 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Course Id</label>
-                        <input type="text" class="form-control" placeholder="Ex. CSE-101" >
+                        <input type="text" class="form-control" placeholder="Ex. CSE-101" name="courseId">
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>Student Id</label>
-                        <input type="text" class="form-control" placeholder="Ex. 19554846">
+                        <input type="text" class="form-control" placeholder="Ex. 19554846" name="studentId">
                       </div>
                     </div>
                   </div>
@@ -195,77 +202,111 @@
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>Marks for Question 1</label>
-                        <input type="number" class="form-control" placeholder="Ex. 84" >
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="q1">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
                       <div class="form-group">
-                        <label>Course Outcome Index</label>
-                        <input type="number" class="form-control" placeholder="Ex. 5">
+                        <label>CO for Question 1</label>
+                        <input type="number" class="form-control" placeholder="Ex. 5" name="q1co">
                       </div>
                     </div>
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>Marks for Question 2</label>
-                        <input type="number" class="form-control" placeholder="Ex. 84" >
+                        <input type="number" class="form-control" placeholder="Ex. 84"  name="q2">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
                       <div class="form-group">
-                        <label>Course Outcome Index</label>
-                        <input type="number" class="form-control" placeholder="Ex. 5">
+                        <label>CO for Question 2</label>
+                        <input type="number" class="form-control" placeholder="Ex. 5" name="q2co">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
-                        <label>Marks for Question 1</label>
-                        <input type="number" class="form-control" placeholder="Ex. 84" >
+                        <label>Marks for Question 3</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="q3">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
                       <div class="form-group">
-                        <label>Course Outcome Index</label>
-                        <input type="number" class="form-control" placeholder="Ex. 5">
+                        <label>CO for Question 3</label>
+                        <input type="number" class="form-control" placeholder="Ex. 5" name="q3co">
                       </div>
                     </div>
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
-                        <label>Marks for Question 2</label>
-                        <input type="number" class="form-control" placeholder="Ex. 84" >
+                        <label>Marks for Question 4</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="q4">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
                       <div class="form-group">
-                        <label>Course Outcome Index</label>
-                        <input type="number" class="form-control" placeholder="Ex. 5">
+                        <label>CO for Question 4</label>
+                        <input type="number" class="form-control" placeholder="Ex. 5" name="q4co">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
-                        <label>Marks for Question 1</label>
-                        <input type="number" class="form-control" placeholder="Ex. 84" >
+                        <label>Marks for Question 5</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="q5">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
                       <div class="form-group">
-                        <label>Course Outcome Index</label>
-                        <input type="number" class="form-control" placeholder="Ex. 5">
+                        <label>CO for Question 5</label>
+                        <input type="number" class="form-control" placeholder="Ex. 5" name="q5co">
                       </div>
                     </div>
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
-                        <label>Marks for Question 2</label>
-                        <input type="number" class="form-control" placeholder="Ex. 84" >
+                        <label>Marks for Question 6</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="q6">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
                       <div class="form-group">
-                        <label>Course Outcome Index</label>
-                        <input type="number" class="form-control" placeholder="Ex. 5">
+                        <label>CCO for Question 6</label>
+                        <input type="number" class="form-control" placeholder="Ex. 5" name="q6co">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label>Marks for Question 7</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="q7">
+                      </div>
+                    </div>
+                    <div class="col-md-2 pl-1">
+                      <div class="form-group">
+                        <label>CO for Question 7</label>
+                        <input type="number" class="form-control" placeholder="Ex. 5" name="q7co">
+                      </div>
+                    </div>
+                    <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label>Marks for Question 8</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="q8">
+                      </div>
+                    </div>
+                    <div class="col-md-2 pl-1">
+                      <div class="form-group">
+                        <label>CCO for Question 8</label>
+                        <input type="number" class="form-control" placeholder="Ex. 5" name="q8co">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 pr-1">
+                      <div class="form-group data-file" align="center">
+                        <label for="file" id="file-label">Choose Data File</label>
+                        <input type="file" class="form-control-file" id="file" name="file">
                       </div>
                     </div>
                   </div>
@@ -276,7 +317,7 @@
                   <div class="col-8">
                     <button type="button" class="btn submit-button">Submit</button>
                   </div>
-                  <div class="col-4 total-marks">Total : <span id="marks-here">54</span></div>
+                  <div class="col-4 total-marks">Total : <span id="marks-here">0</span></div>
                 </div>
               </div>
             </div>
@@ -285,7 +326,7 @@
       </div>
       <footer class="footer">
         <div class=" container-fluid ">
-          </nav> -->
+          </nav>
           <div class="copyright" id="copyright">
             &copy; <script>
               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
@@ -300,17 +341,19 @@
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chart JS -->
-  <script src="assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
   <script src="assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="assets/demo/demo.js"></script>
   <script>
-    
+    $(".submit-button").click(function(){
+      $("#marks-form").submit();
+    });
+
+    $("#file").change(function(){
+      $("#file-label").html($("#file").val());
+    });
   </script>
 </body>
 
