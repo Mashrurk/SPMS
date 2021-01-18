@@ -158,7 +158,7 @@
                 
               </div>
               <div class="card-body">
-                <form action="php/add-marks.php" method="POST" id="marks-form">
+                <form action="php/add-marks.php" method="POST" id="marks-form" enctype='multipart/form-data'>
                   <div class="row">
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
@@ -199,10 +199,16 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-4 pr-1">
+                    <div class="col-md-3 pr-1">
                       <div class="form-group">
                         <label>Marks for Question 1</label>
                         <input type="number" class="form-control" placeholder="Ex. 84" name="q1">
+                      </div>
+                    </div>
+                    <div class="col-md-1 px-1">
+                      <div class="form-group">
+                        <label>Total</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="qt1">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
@@ -211,10 +217,16 @@
                         <input type="number" class="form-control" placeholder="Ex. 5" name="q1co">
                       </div>
                     </div>
-                    <div class="col-md-4 pr-1">
+                    <div class="col-md-3 pr-1">
                       <div class="form-group">
                         <label>Marks for Question 2</label>
                         <input type="number" class="form-control" placeholder="Ex. 84"  name="q2">
+                      </div>
+                    </div>
+                    <div class="col-md-1 px-1">
+                      <div class="form-group">
+                        <label>Total</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="qt2">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
@@ -225,10 +237,16 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-4 pr-1">
+                    <div class="col-md-3 pr-1">
                       <div class="form-group">
                         <label>Marks for Question 3</label>
                         <input type="number" class="form-control" placeholder="Ex. 84" name="q3">
+                      </div>
+                    </div>
+                    <div class="col-md-1 px-1">
+                      <div class="form-group">
+                        <label>Total</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="qt3">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
@@ -237,10 +255,16 @@
                         <input type="number" class="form-control" placeholder="Ex. 5" name="q3co">
                       </div>
                     </div>
-                    <div class="col-md-4 pr-1">
+                    <div class="col-md-3 pr-1">
                       <div class="form-group">
                         <label>Marks for Question 4</label>
                         <input type="number" class="form-control" placeholder="Ex. 84" name="q4">
+                      </div>
+                    </div>
+                    <div class="col-md-1 px-1">
+                      <div class="form-group">
+                        <label>Total</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="qt4">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
@@ -251,10 +275,16 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-4 pr-1">
+                    <div class="col-md-3 pr-1">
                       <div class="form-group">
                         <label>Marks for Question 5</label>
                         <input type="number" class="form-control" placeholder="Ex. 84" name="q5">
+                      </div>
+                    </div>
+                    <div class="col-md-1 px-1">
+                      <div class="form-group">
+                        <label>Total</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="qt5">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
@@ -263,10 +293,16 @@
                         <input type="number" class="form-control" placeholder="Ex. 5" name="q5co">
                       </div>
                     </div>
-                    <div class="col-md-4 pr-1">
+                    <div class="col-md-3 pr-1">
                       <div class="form-group">
                         <label>Marks for Question 6</label>
                         <input type="number" class="form-control" placeholder="Ex. 84" name="q6">
+                      </div>
+                    </div>
+                    <div class="col-md-1 px-1">
+                      <div class="form-group">
+                        <label>Total</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="qt6">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
@@ -277,10 +313,16 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-4 pr-1">
+                    <div class="col-md-3 pr-1">
                       <div class="form-group">
                         <label>Marks for Question 7</label>
                         <input type="number" class="form-control" placeholder="Ex. 84" name="q7">
+                      </div>
+                    </div>
+                    <div class="col-md-1 px-1">
+                      <div class="form-group">
+                        <label>Total</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="qt7">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
@@ -289,10 +331,16 @@
                         <input type="number" class="form-control" placeholder="Ex. 5" name="q7co">
                       </div>
                     </div>
-                    <div class="col-md-4 pr-1">
+                    <div class="col-md-3 pr-1">
                       <div class="form-group">
                         <label>Marks for Question 8</label>
                         <input type="number" class="form-control" placeholder="Ex. 84" name="q8">
+                      </div>
+                    </div>
+                    <div class="col-md-1 px-1">
+                      <div class="form-group">
+                        <label>Total</label>
+                        <input type="number" class="form-control" placeholder="Ex. 84" name="qt8">
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
