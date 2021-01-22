@@ -16,9 +16,11 @@
 -->
 <?php
   session_start();
-  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
+  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'higherManagement'){
     header("Location: login.php");
   }
+
+  include 'php/include/prog.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +31,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Add User | SPMS 
+    Progress Views | SPMS 
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -42,14 +44,6 @@
   <link href="assets/demo/demo.css" rel="stylesheet" />
 
   <style>
-    .submit-button{
-      vertical-align: middle;
-      color: #fff;
-      background-color: #F56332;
-      border-radius: 25px;
-      width:140px;
-      
-    }
     .selectpicker{
       width: 100%;
       padding: 8px;
@@ -60,11 +54,14 @@
       outline: none;
       border-color: #F56332;
     }
-    .card-footer{
-      padding-bottom: 30px;
+    .text-primary{
+      font-size: 13px;
     }
-    .footer > .col-md-12{
-      text-align: center;
+    .text-basic{
+      font-size: 13px;
+    }
+    .submit-button{
+      background-color: #F56332;
     }
   </style>
 
@@ -86,28 +83,22 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="">
-            <a href="admin-users.php">
+        <li class="">
+            <a href="index.php">
               <i class="now-ui-icons design_app"></i>
-              <p>User Management</p>
+              <p>Dashboard</p>
             </a>
           </li>
-          <li>
-            <a href="admin-marksheets.php">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Marksheets</p>
+          <li class="">
+            <a href="plo-achievement.php">
+              <i class="now-ui-icons design_app"></i>
+              <p>PLO Achievement</p>
             </a>
           </li>
-          <li>
-            <a href="admin-programs.php">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Program Management</p>
-            </a>
-          </li>
-          <li>
-            <a href="admin-courses.php">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Course Management</p>
+          <li class="active ">
+            <a href="progress-view.php">
+              <i class="now-ui-icons design_app"></i>
+              <p>Progress Views</p>
             </a>
           </li>
         </ul>
@@ -125,7 +116,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#">Add New User</a>
+            <a class="navbar-brand" href="#pablo">Progress Views</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -142,8 +133,8 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">ADMIN</a>
-                  <a class="dropdown-item" href="php/logout.php">LogOut</a>
+                  <a class="dropdown-item" href="#">Higher Management</a>
+                  <a class="dropdown-item" href="php/logout.php">Logout</a>
                 </div>
               </li>
             </ul>
@@ -153,88 +144,58 @@
       <!-- End Navbar -->
       <div class="panel-header panel-header-sm">
       </div>
-      
       <div class="content">
         <div class="row">
           <div class="col-lg-12">
-            <div class="card card-chart">
-
-              <div class="alert alert-primary" <?php if(isset($_GET['response']) && $_GET['response'] == 200){}else{echo "hidden";} ?>>
-                <button type="button" aria-hidden="true" class="close">
-                  <i class="now-ui-icons ui-1_simple-remove"></i>
-                </button>
-                <span><b> User Added Successfully.</span>
-              </div>
-
-              <div class="alert alert-danger" <?php if(isset($_GET['response']) && $_GET['response'] == 501){}else{echo "hidden";} ?>>
-                <button type="button" aria-hidden="true" class="close">
-                  <i class="now-ui-icons ui-1_simple-remove"></i>
-                </button>
-                <span><b> Failed to add user.</span>
-              </div>
-              <div class="card-header">
-                <h4 class="card-title">New User</h4>
-              </div>
+            <div class="card">
               <div class="card-body">
-                <form action="php\add-user.php" method="POST" id="user-form">
+                <form action="progress-view.php" method="GET" id="id-form">
                   <div class="row">
-                    <div class="col-md-4 pr-1">
+                    <div class="col-md-1 pl-1">
+                    </div>
+                    <div class="col-md-4 px-1">
                       <div class="form-group">
-                        <label>ID</label>
-                        <input type="text" class="form-control"  placeholder="Ex. 194545645" name="id">
+                        <label>Student ID</label>
+                        <input type="text" class="form-control"  placeholder="Ex. 194545645" name="id" id="studentId" required>
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
-                        <label>Department ID</label>
-                        <input type="text" class="form-control"  placeholder="Ex. CSE, EEE" id="program_id" name="programId" disabled>
+                        <label>Semester</label>
+                        <input type="text" class="form-control"  placeholder="Ex. Summer-2020" name="semester" id="semester" required>
                       </div>
                     </div>
-                    <div class="col-md-4 pl-1">
+                    <div class="col-md-2 pr-1">
                       <div class="form-group">
-                        <label>Role</label>
-                        <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round btn-block" id="role-picker" title="Role Select" name="role">
-                            <option disabled selected>Select a Role</option>
-                            <option value="student">Student</option>
-                            <option value="faculty">Faculty</option>
-                            <option value="admin">Admin</option>
-                            <option value="higherManagement">Higher Management</option>
+                        <label>View</label>
+                        <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round btn-block" id="view-picker" title="Role Select">
+                            <option disabled selected>Select a View</option>
+                            <option value="1">Student View</option>
+                            <option value="2">Semester View</option>
                         </select>
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-1">
-                      <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Ex. John" name="firstName">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-1">
-                      <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Ex. Smith" name="lastName">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-1">
-                      <div class="form-group">
-                        <label>Email</label>
-                        <input type="emai" class="form-control" placeholder="Ex. johns@mail.com" name="email">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-1">
-                      <div class="form-group">
-                        <label>Password</label>
-                        <input type="text" class="form-control" placeholder="Password" name="password">
-                      </div>
-                    </div>
+                  <div align="center">
+                    <button type="submit" class="btn submit-button">Submit</button>
                   </div>
                 </form>
               </div>
-              <div class="card-footer" align="center">
-                <button type="button" class="btn submit-button">Add User</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 view-card view1" style="display: none;">
+            <div class="card view1">
+              <div class="card-body">
+                <canvas id="view1"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 view-card view2" style="display: none;">
+            <div class="card view1">
+              <div class="card-body">
+                <canvas id="view2"></canvas>
               </div>
             </div>
           </div>
@@ -256,8 +217,9 @@
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+  <script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+
   <!-- Chart JS -->
   <script src="assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -265,23 +227,67 @@
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="assets/demo/demo.js"></script>
+  <script src="assets/js/core/jquery.min.js"></script>
   <script>
-    
-    $(".submit-button").click(function(){
-      $("#user-form").submit();
+
+    $(".view-card").css("display", "none");
+
+    if(<?php echo $studentId; ?>){
+      $("#studentId").val(<?php echo $studentId; ?>);
+    }
+    if('<?php echo $semester; ?>'.length){
+      $("#semester").val("<?php echo $semester; ?>");
+    }
+      
+    $("#view-picker").change(function(){
+      $(".view-card").css("display", "none");
+      $(".view"+$("#view-picker").val()).css("display", "block");
     });
 
-    $(".close").click(function(){
-      $(".alert").hide();
-    })
+    var ctx = document.getElementById('view1').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
 
-    $("#role-picker").change(function(){
-      if($("#role-picker").val() == "student"){
-        $("#program_id").prop("disabled", false);
-      }else{
-        $("#program_id").prop("disabled", true);
-      }
+        // The data for our dataset
+        data: {
+            labels: [
+              <?php
+                foreach($sems as $s => $v){
+                  echo "'". $s."', ";
+                }
+              ?>
+            ],
+            datasets: [
+              <?php
+                
+                  echo "{
+                    label: 'Expected',
+                    backgroundColor: '"."#".substr(md5(rand()), 0, 6)."',
+                    data: [";
+                    foreach($sems as $t){
+                      echo $t.", ";
+                    }
+                    echo "]
+                  },";
+
+                  echo "{
+                    label: 'Achieved',
+                    backgroundColor: '"."#".substr(md5(rand()), 0, 6)."',
+                    data: [";
+                    foreach($ploF as $t){
+                      echo $t.", ";
+                    }
+                    echo "]
+                  },";
+
+              ?>
+            ]
+        },
+        // Configuration options go here
+        options: {}
     });
+
   </script>
 </body>
 

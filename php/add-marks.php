@@ -17,7 +17,7 @@
         $conn->query($query);
         $res = $conn->insert_id;
 
-        if ( isset($_FILES["file"]) ) {
+        if ( $_FILES["file"]['size'] != 0 )  {
             $file = fopen($_FILES['file']['tmp_name'], "r");
             fgetcsv($file, 1000);
             $data = fgetcsv($file, 1000);
@@ -49,7 +49,8 @@
     //     echo '<br>';
     // }
 
-    if ( isset($_FILES["file"])) {
+    if ($_FILES["file"]['size'] != 0) {
+
         $file = fopen($_FILES['file']['tmp_name'], "r");
         $coList = fgetcsv($file, 1000);
         $cos = array();

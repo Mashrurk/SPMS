@@ -16,9 +16,11 @@
 -->
 <?php
   session_start();
-  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
+  if(!isset($_SESSION['role']) || $_SESSION['role'] != 'higherManagement'){
     header("Location: login.php");
   }
+
+  // include 'php/include/dash.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +31,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Add User | SPMS 
+    Program Management | SPMS 
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -42,29 +44,10 @@
   <link href="assets/demo/demo.css" rel="stylesheet" />
 
   <style>
-    .submit-button{
-      vertical-align: middle;
-      color: #fff;
-      background-color: #F56332;
-      border-radius: 25px;
-      width:140px;
-      
-    }
-    .selectpicker{
-      width: 100%;
-      padding: 8px;
-      border-radius: 20px;
-      border-color: #E3E3E3;
-    }
-    .selectpicker:focus{
-      outline: none;
-      border-color: #F56332;
-    }
-    .card-footer{
-      padding-bottom: 30px;
-    }
-    .footer > .col-md-12{
-      text-align: center;
+    .final-result{
+      color: #F56332;
+      font-size: 18px;
+      font-weight: 500;
     }
   </style>
 
@@ -86,28 +69,16 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="">
-            <a href="admin-users.php">
+        <li class="">
+            <a href="index.php">
               <i class="now-ui-icons design_app"></i>
-              <p>User Management</p>
+              <p>Dashboard</p>
             </a>
           </li>
-          <li>
-            <a href="admin-marksheets.php">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Marksheets</p>
-            </a>
-          </li>
-          <li>
-            <a href="admin-programs.php">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Program Management</p>
-            </a>
-          </li>
-          <li>
-            <a href="admin-courses.php">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Course Management</p>
+          <li class="active ">
+            <a href="plo-achievement.php">
+              <i class="now-ui-icons design_app"></i>
+              <p>PLO Achievement</p>
             </a>
           </li>
         </ul>
@@ -125,7 +96,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#">Add New User</a>
+            <a class="navbar-brand" href="#pablo">Course List</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -153,88 +124,60 @@
       <!-- End Navbar -->
       <div class="panel-header panel-header-sm">
       </div>
-      
       <div class="content">
         <div class="row">
           <div class="col-lg-12">
             <div class="card card-chart">
-
-              <div class="alert alert-primary" <?php if(isset($_GET['response']) && $_GET['response'] == 200){}else{echo "hidden";} ?>>
-                <button type="button" aria-hidden="true" class="close">
-                  <i class="now-ui-icons ui-1_simple-remove"></i>
-                </button>
-                <span><b> User Added Successfully.</span>
-              </div>
-
-              <div class="alert alert-danger" <?php if(isset($_GET['response']) && $_GET['response'] == 501){}else{echo "hidden";} ?>>
-                <button type="button" aria-hidden="true" class="close">
-                  <i class="now-ui-icons ui-1_simple-remove"></i>
-                </button>
-                <span><b> Failed to add user.</span>
-              </div>
               <div class="card-header">
-                <h4 class="card-title">New User</h4>
+                <!-- <h5 class="card-category">Submitted Marksheets by Faculties</h5> -->
+                <h4 class="card-title">Course List</h4>
+                <div class="dropdown">
+                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                    <i class="now-ui-icons loader_gear"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item user-add-btn" href="admin-add-course.php">New Course</a>
+                  </div>
+                </div>
               </div>
               <div class="card-body">
-                <form action="php\add-user.php" method="POST" id="user-form">
-                  <div class="row">
-                    <div class="col-md-4 pr-1">
-                      <div class="form-group">
-                        <label>ID</label>
-                        <input type="text" class="form-control"  placeholder="Ex. 194545645" name="id">
-                      </div>
-                    </div>
-                    <div class="col-md-4 px-1">
-                      <div class="form-group">
-                        <label>Department ID</label>
-                        <input type="text" class="form-control"  placeholder="Ex. CSE, EEE" id="program_id" name="programId" disabled>
-                      </div>
-                    </div>
-                    <div class="col-md-4 pl-1">
-                      <div class="form-group">
-                        <label>Role</label>
-                        <select class="selectpicker" data-size="7" data-style="btn btn-primary btn-round btn-block" id="role-picker" title="Role Select" name="role">
-                            <option disabled selected>Select a Role</option>
-                            <option value="student">Student</option>
-                            <option value="faculty">Faculty</option>
-                            <option value="admin">Admin</option>
-                            <option value="higherManagement">Higher Management</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-1">
-                      <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Ex. John" name="firstName">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-1">
-                      <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Ex. Smith" name="lastName">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-1">
-                      <div class="form-group">
-                        <label>Email</label>
-                        <input type="emai" class="form-control" placeholder="Ex. johns@mail.com" name="email">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-1">
-                      <div class="form-group">
-                        <label>Password</label>
-                        <input type="text" class="form-control" placeholder="Password" name="password">
-                      </div>
-                    </div>
-                  </div>
-                </form>
+                <div class="table-responsive">
+                  <table class="table" id="datatable">
+                    <thead class=" text-primary">
+                      <th>
+                        Course ID
+                      </th>
+                      <th>
+                        Course Title
+                      </th>
+                      <th>
+                        Program ID
+                      </th>
+                      <th>
+                        Credit
+                      </th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          CSE-101
+                        </td>
+                        <td>
+                          Introduction to Computer
+                        </td>
+                        <td>
+                          CSE
+                        </td>
+                        <td>
+                         3.00
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-              <div class="card-footer" align="center">
-                <button type="button" class="btn submit-button">Add User</button>
+              <div class="card-footer">
+                
               </div>
             </div>
           </div>
@@ -258,6 +201,9 @@
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+  <script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+
   <!-- Chart JS -->
   <script src="assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -266,21 +212,11 @@
   <script src="assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="assets/demo/demo.js"></script>
   <script>
-    
-    $(".submit-button").click(function(){
-      $("#user-form").submit();
-    });
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+      $('#datatable').DataTable();
 
-    $(".close").click(function(){
-      $(".alert").hide();
-    })
-
-    $("#role-picker").change(function(){
-      if($("#role-picker").val() == "student"){
-        $("#program_id").prop("disabled", false);
-      }else{
-        $("#program_id").prop("disabled", true);
-      }
     });
   </script>
 </body>
