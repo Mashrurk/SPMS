@@ -19,6 +19,13 @@
   if(!isset($_SESSION['role']) || $_SESSION['role'] != 'student'){
     header("Location: login.php");
   }
+  if(!(isset($_GET['id']))){
+    $l = "?id=".$_SESSION['user_id']."";
+    header("Location: ".$l);
+  }
+
+  include 'php/include/plo.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,8 +98,8 @@
 
             </div>
             <div class="col-11">
-            <p id="student-name">Student Name</p>
-            <p id="student-info">Student info</p>
+            <p id="student-name"><?php echo $_SESSION['name']; ?></p>
+            <p id="student-info"><?php echo "ID: ". $_SESSION['user_id']; ?></p>
             </div>
             
           </li>
@@ -145,11 +152,34 @@
             <div class="card card-chart">
               <div class="card-header">
                 <!-- <h5 class="card-category">Summer 2021</h5> -->
-                <h4 class="card-title">Summer 2021</h4>
-                
+                <h4 class="card-title">Result</h4>
+                <div class="dropdown">
+                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                    <i class="now-ui-icons loader_gear"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <?php
+                      foreach($courseFinal as $v){
+                        foreach($v as $i => $j){
+                          echo "<a class='dropdown-item' onclick='activeV(".$i.")'>PLO".$i."</a>";
+                        }
+                        break;
+                      }
+                    ?>
+                  </div>
+                </div>
               </div>
               <div class="card-body">
-                <div class="table-responsive">
+
+                <?php
+                  foreach($courseFinal as $v){
+                    foreach($v as $i => $j){
+                      echo "<canvas class='view' id='view".$i."'></canvas>";
+                    }
+                    break;
+                  }
+                ?>
+                <!-- <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
                       <th>
@@ -220,7 +250,7 @@
                       </tr>
                     </tbody>
                   </table>
-                </div>
+                </div> -->
               </div>
               <div class="card-footer">
                 
@@ -245,8 +275,6 @@
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chart JS -->
   <script src="assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -255,11 +283,86 @@
   <script src="assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="assets/demo/demo.js"></script>
   <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
 
-    });
+    $(".view").css("display", "none");
+
+    function activeV($i){
+      $(".view").css("display", "none");
+      $("#view"+$i).css("display", "block");
+    }
+
+    <?php
+      foreach($courseFinal as $v){
+        foreach($v as $i => $j){
+          echo "var ctx = document.getElementById('view".$i."').getContext('2d');
+            var chart = new Chart(ctx, {
+              type: 'pie',// The data for our dataset
+              data: {
+                  labels: [";
+                    foreach($courseFinal as $c => $v){
+                      echo "'".$c."', ";
+                    }
+                  echo "],
+                  datasets: [{
+                      label: 'PLO".$i." Data',
+                      backgroundColor: [";
+                      foreach($courseFinal as $c => $v){
+                        echo "'#".substr(md5(rand()), 0, 6)."', ";
+                      }
+                      echo "],
+                      data: [";
+                      foreach($courseFinal as $c => $v){
+                        if($v[$i] == -1){
+                          continue;
+                        }
+                        echo $v[$i].", ";
+                      }              
+                      echo"]
+                  }]
+              },
+              // Configuration options go here
+              options: {}
+          });";
+        }
+        break;
+      }
+    ?>
+    
+    // var ctx = document.getElementById('view1').getContext('2d');
+    //   var chart = new Chart(ctx, {
+    //       // The type of chart we want to create
+    //       type: 'pie',
+
+    //       // The data for our dataset
+    //       data: {
+    //           labels: [
+    //             <?php
+    //               foreach($courseFinal as $c => $v){
+    //                 echo "'".$c."', ";
+    //               }
+    //             ?>
+    //           ],
+    //           datasets: [{
+    //               label: 'PLO Data',
+    //               backgroundColor: [
+    //                 <?php
+    //                   foreach($courseFinal as $c => $v){
+    //                     echo "'#".substr(md5(rand()), 0, 6)."', ";
+    //                   }
+    //                 ?>
+    //               ],
+    //               data: [
+    //                 <?php
+    //                   foreach($courseFinal as $c => $v){
+    //                     echo $v[2].", ";
+    //                   }
+    //                 ?>
+    //               ]
+    //           }]
+    //       },
+    //       // Configuration options go here
+    //       options: {}
+    //   });
   </script>
 </body>
 

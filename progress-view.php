@@ -194,8 +194,56 @@
           </div>
           <div class="col-md-12 view-card view2" style="display: none;">
             <div class="card view1">
+              <div class="card-header">
+                <h5>Number of Students: <?php echo $numS; ?></h5>
+              </div>
               <div class="card-body">
-                <canvas id="view2"></canvas>
+                <div class="table-responsive">
+                  <table class="table" id="datatable">
+                    <thead class=" text-primary">
+                      <th>
+                        CO/PLO
+                      </th>
+                      <th>
+                        Successfully Achieved
+                      </th>
+                      <th>
+                      Successfully Achieved(%)
+                      </th>
+                      <th>
+                        Failed To Achieve
+                      </th>
+                      <th>
+                      Failed To Achieve(%)
+                      </th>
+                    </thead>
+                    <tbody class=" text-basic">
+                      <?php
+                        foreach($finalC as $c => $co){
+                          echo "<tr>";
+                          echo "<td>CO$c</td>";
+                          echo "<td>$co</td>";
+                          echo "<td>".round(($co*100/$numS), 2)."%</td>";
+                          echo "<td>".($numS-$co)."</td>";
+                          echo "<td>".(100-round(($co*100/$numS), 2))."</td>";
+                          echo "<tr>";
+                        }
+                      ?>
+                      <?php
+                        foreach($finalP as $p => $po){
+                          echo "<tr>";
+                          echo "<td>PLO$p</td>";
+                          echo "<td>$po</td>";
+                          echo "<td>".round(($po*100/$numS), 2)."</td>";
+                          echo "<td>".($numS-$po)."</td>";
+                          echo "<td>".(100-round(($po*100/$numS), 2))."</td>";
+                          echo "<tr>";
+                        }
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
               </div>
             </div>
           </div>

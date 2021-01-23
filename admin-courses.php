@@ -19,6 +19,10 @@
   if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
     header("Location: login.php");
   }
+  include 'php/include/conn.php';
+  $query = "SELECT * from course";
+  $crs = $conn->query($query);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -169,26 +173,28 @@
                       </th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          CSE-101
-                        </td>
-                        <td>
-                          Introduction to Computer
-                        </td>
-                        <td>
-                          CSE
-                        </td>
-                        <td>
-                         3.00
-                        </td>
-                      </tr>
+                      <?php
+                        foreach($crs as $c){
+                          echo "<tr>
+                                <td>
+                                  ".$c['id']."
+                                </td>
+                                <td>
+                                  ".$c['title']."
+                                </td>
+                                <td>
+                                ".$c['programId']."
+                                </td>
+                                <td>
+                                ".$c['credit']."
+                                </td>
+                              </tr>";
+                        }
+                      ?>
+                      
                     </tbody>
                   </table>
                 </div>
-              </div>
-              <div class="card-footer">
-                
               </div>
             </div>
           </div>

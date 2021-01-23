@@ -19,6 +19,10 @@
   if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
     header("Location: login.php");
   }
+  include 'php/include/conn.php';
+  $query = "SELECT * FROM program";
+  $prgrm = $conn->query($query);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -164,25 +168,23 @@
                       <th>
                         School
                       </th>
-                      <th>
-                        Total PLO
-                      </th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          CSE
-                        </td>
-                        <td>
-                          Coputer Science and Engineering
-                        </td>
-                        <td>
-                          Modern Science
-                        </td>
-                        <td>
-                          13
-                        </td>
-                      </tr>
+                      <?php
+                        foreach($prgrm as $p){
+                          echo "<tr>
+                          <td>
+                            ".$p['id']."
+                          </td>
+                          <td>
+                          ".$p['title']."
+                          </td>
+                          <td>
+                          ".$p['school']."
+                          </td>
+                        </tr>";
+                        }
+                      ?>
                     </tbody>
                   </table>
                 </div>

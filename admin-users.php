@@ -19,6 +19,27 @@
   if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
     header("Location: login.php");
   }
+
+  include 'php/include/conn.php';
+
+  if(isset($_GET['q']) && $_GET['q'] == 'faculty'){
+    $query = "SELECT * FROM faculty";
+    $user = $conn->query($query);
+    $role = 'Faculty';
+  }else if(isset($_GET['q']) && $_GET['q'] == 'admin'){
+    $query = "SELECT * FROM admin";
+    $user = $conn->query($query);
+    $role = 'Admin';
+  }else if(isset($_GET['q']) && $_GET['q'] == 'hm'){
+    $query = "SELECT * FROM highermanagement";
+    $user = $conn->query($query);
+    $role = 'HM';
+  }else{
+    $query = "SELECT * FROM student";
+    $user = $conn->query($query);
+    $role = "Student";
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -146,8 +167,7 @@
                     <i class="now-ui-icons loader_gear"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="admin-users.php">All</a>
-                    <a class="dropdown-item" href="admin-users.php?q=studnt">Students</a>
+                    <a class="dropdown-item" href="admin-users.php?q=student">Students</a>
                     <a class="dropdown-item" href="admin-users.php?q=faculty">Faculties</a>
                     <a class="dropdown-item" href="admin-users.php?q=admin">Admin</a>
                     <a class="dropdown-item" href="admin-users.php?q=hm">Higher Management</a>
@@ -159,57 +179,50 @@
                 <div class="table-responsive">
                   <table class="table" id="datatable">
                     <thead class=" text-primary">
-                      <th>
-                        ID
-                      </th>
-                      <th>
-                        Full Name
-                      </th>
-                      <th>
-                        Email
-                      </th>
-                      <th>
-                        Role
-                      </th>
-                      <th>
-                        Added
-                      </th>
+                    <th>
+                      ID
+                    </th>
+                    <th>
+                      Full Name
+                    </th>
+                    <?php 
+                      if(!(isset($_GET['q']) && $_GET['q']!='student')){
+                        echo "<th>
+                              Department
+                            </th>";
+                      }
+                    ?>
+                    <th>
+                      Email
+                    </th>
+                    <th>
+                      Role
+                    </th>                      
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          1545646
-                        </td>
-                        <td>
-                          John Smith
-                        </td>
-                        <td>
-                          john.smith@mail.com
-                        </td>
-                        <td>
-                          Student
-                        </td>
-                        <td>
-                          2021-01-05 14:35:12
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          15545
-                        </td>
-                        <td>
-                          Arer Cartus
-                        </td>
-                        <td>
-                          arter@email.org
-                        </td>
-                        <td>
-                          Admin
-                        </td>
-                        <td>
-                          2021-01-05 14:35:12
-                        </td>
-                      </tr>
+                      <?php
+                        foreach($user as $u){
+                          echo"<tr>
+                          <td>
+                            ".$u['id']."
+                          </td>
+                          <td>
+                            ".$u['firstName']." ".$u['lastName']."
+                          </td>";
+                          if($role=="Student"){
+                            echo"<td>
+                                ".$u['programId']."
+                                </td>";
+                          }
+                          echo"<td>
+                          ".$u['email']."
+                          </td>
+                          <td>
+                            ".$role."
+                          </td>
+                        </tr>";
+                        }
+                      ?>
                     </tbody>
                   </table>
                 </div>

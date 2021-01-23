@@ -19,6 +19,9 @@
   if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
     header("Location: login.php");
   }
+  include 'php/include/conn.php';
+  $query = "SELECT * from exam";
+  $exams = $conn->query($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -174,25 +177,31 @@
                       <th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          Summer 2021
-                        </td>
-                        <td>
-                          CSE-101
-                        </td>
-                        <td>
-                          Introduction to Computer
-                        </td>
-                        <td>
-                          Mid-term
-                        </td>
-                        <td>
-                          <span class="sheet-btn" id="more_1" onclick="window.location.assign('admin-marksheet-solo.php');"><i class="now-ui-icons ui-1_zoom-bold"></i></span>
-                          <span class="sheet-btn" id="ok_1"><i class="now-ui-icons ui-1_check"></i></span>
-                          <span class="sheet-btn" id="no_1"><i class="now-ui-icons ui-1_simple-remove"></i></span>                          
-                        </td>
-                      </tr>
+                      <?php 
+                          foreach($exams as $e){
+                            if(isset($e['status']) && $e['status']==1){
+                              continue;
+                            }
+                            echo "<tr>
+                                    <td>
+                                      ".$e['semester']."
+                                    </td>
+                                    <td>
+                                    ".$e['courseId']."
+                                    </td>
+                                    <td>
+                                      Introduction to Computer
+                                    </td>
+                                    <td>
+                                    ".$e['examName']."
+                                    </td>
+                                    <td>
+                                      <span class='sheet-btn' id='ok_1' onclick=''><i class='now-ui-icons ui-1_check'></i></span>
+                                      <span class='sheet-btn' id='no_1' onclick=''><i class='now-ui-icons ui-1_simple-remove'></i></span>                          
+                                    </td>
+                                  </tr>";
+                          }
+                      ?>
                     </tbody>
                   </table>
                 </div>
