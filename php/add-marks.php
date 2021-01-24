@@ -41,14 +41,6 @@
         $res = $res[0];
     }
 
-    // if ( isset($_FILES["file"])) {
-    //     $file = fopen($_FILES['file']['tmp_name'], "r");
-    //     fgetcsv($file, 1000);
-    //     $headers = fgetcsv($file, 1000);
-    //     print_r($headers);
-    //     echo '<br>';
-    // }
-
     if ($_FILES["file"]['size'] != 0) {
 
         $file = fopen($_FILES['file']['tmp_name'], "r");

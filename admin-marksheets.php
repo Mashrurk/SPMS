@@ -196,8 +196,8 @@
                                     ".$e['examName']."
                                     </td>
                                     <td>
-                                      <span class='sheet-btn' id='ok_1' onclick=''><i class='now-ui-icons ui-1_check'></i></span>
-                                      <span class='sheet-btn' id='no_1' onclick=''><i class='now-ui-icons ui-1_simple-remove'></i></span>                          
+                                      <span class='sheet-btn' id='ok_1' onclick='eApr(".$e['serial'].")'><i class='now-ui-icons ui-1_check'></i></span>
+                                      <span class='sheet-btn' id='no_1' onclick='eDis(".$e['serial'].")'><i class='now-ui-icons ui-1_simple-remove'></i></span>                          
                                     </td>
                                   </tr>";
                           }
@@ -240,11 +240,12 @@
   <script src="assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="assets/demo/demo.js"></script>
   <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
-
-    });
+    function eApr($i){
+      window.location.replace("php/include/admin-checkup.php?a="+$i);
+    }
+    function eApr($i){
+      window.location.replace("php/include/admin-checkup.php?a="+$i);
+    }
   </script>
 </body>
 

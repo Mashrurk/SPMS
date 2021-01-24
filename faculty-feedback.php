@@ -19,6 +19,9 @@
   if(!isset($_SESSION['role']) || $_SESSION['role'] != 'faculty'){
     header("Location: login.php");
   }
+  include 'php/include/conn.php';
+  $query = "SELECT * from exam";
+  $exams = $conn->query($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +75,7 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="faculty.php">
+            <a href="faculty-marks-entry.php">
               <i class="now-ui-icons design_app"></i>
               <p>Marks Entry</p>
             </a>
@@ -146,28 +149,29 @@
                         Course Id
                       </th>
                       <th>
-                        Course Title
-                      </th>
-                      <th>
                         Exam name
                       </th>
                       <th>
                     </thead>
                     <tbody>
-                      <tr class="warns" id="warn1">
-                        <td>
-                          Summer 2021
-                        </td>
-                        <td>
-                          CSE-101
-                        </td>
-                        <td>
-                          Introduction to Computer
-                        </td>
-                        <td>
-                          Mid-term
-                        </td>
-                      </tr>
+                    <?php 
+                          foreach($exams as $e){
+                            if(isset($e['status']) && $e['status']==1){
+                              continue;
+                            }
+                            echo "<tr>
+                                    <td>
+                                      ".$e['semester']."
+                                    </td>
+                                    <td>
+                                    ".$e['courseId']."
+                                    </td>
+                                    <td>
+                                    ".$e['examName']."
+                                    </td>
+                                  </tr>";
+                          }
+                      ?>
                     </tbody>
                   </table>
                 </div>
